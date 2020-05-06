@@ -35,7 +35,9 @@ class _CountdownScreenState extends State<CountdownScreen> {
                 ),
               ),
               SizedBox(height: 10.0),
-              Expanded(child: CountDownTimer()),
+              Expanded(
+                  child: CountDownTimer(
+                      countdownHrs: '3', countdownMin: '0', countdownSec: '0')),
               SizedBox(height: 10.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

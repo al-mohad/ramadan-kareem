@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:ramadankareem/utils/constants.dart';
 
 class CountDownTimer extends StatefulWidget {
+  final String countdownSec, countdownMin, countdownHrs;
+  CountDownTimer({this.countdownHrs, this.countdownMin, this.countdownSec});
   @override
   _CountDownTimerState createState() => _CountDownTimerState();
 }
@@ -15,7 +17,7 @@ class _CountDownTimerState extends State<CountDownTimer>
 
   String get timerString {
     Duration duration = controller.duration * controller.value;
-    return '${duration.inMinutes}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
+    return '${(duration.inHours % 12).toString().padLeft(2, '0')}:${(duration.inMinutes % 60).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
   start_timer() {
@@ -32,7 +34,10 @@ class _CountDownTimerState extends State<CountDownTimer>
     super.initState();
     controller = AnimationController(
       vsync: this,
-      duration: Duration(minutes: 5),
+      duration: Duration(
+          hours: int.parse(widget.countdownHrs),
+          minutes: int.parse(widget.countdownMin),
+          seconds: int.parse(widget.countdownSec)),
     );
     start_timer();
   }
@@ -70,13 +75,13 @@ class _CountDownTimerState extends State<CountDownTimer>
                                   child: Stack(
                                     children: [
                                       Positioned(
-                                        top: 40,
-                                        left: 45,
+                                        top: 60,
+                                        left: 30,
                                         child: Center(
                                           child: Text(
                                             timerString,
                                             style: TextStyle(
-                                                fontSize: 100.0,
+                                                fontSize: 70.0,
                                                 fontFamily: 'Snowboarding',
                                                 color: kMetalicGold),
                                           ),
