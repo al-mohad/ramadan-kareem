@@ -6,9 +6,9 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
-import 'package:provider/provider.dart';
+import 'package:ramadankareem/components/alert_card.dart';
+import 'package:ramadankareem/components/athan_card.dart';
 import 'package:ramadankareem/components/header.dart';
-import 'package:ramadankareem/models/prayer_time.dart';
 import 'package:ramadankareem/screens/countdown_screen.dart';
 import 'package:ramadankareem/utils/constants.dart';
 import 'package:weather_icons/weather_icons.dart';
@@ -27,11 +27,12 @@ class _HomeScreenState extends State<HomeScreen> {
   String month;
   String year;
   String iftar;
+  String fajr;
   String muslimsalat = 'https://muslimsalat.com/kaduna/daily.json?key=$kAPIKEY';
   void getPrayerData() async {
-    day = await (DateTime.now().day - 1).toString();
-    month = await DateTime.now().month.toString();
-    year = await DateTime.now().year.toString();
+    day = (DateTime.now().day - 1).toString();
+    month = DateTime.now().month.toString();
+    year = DateTime.now().year.toString();
     String aladhan =
         'http://api.aladhan.com/v1/calendarByCity?city=kaduna&country=Nigeria&method=$day&month=$month&year=$year';
 
@@ -42,11 +43,42 @@ class _HomeScreenState extends State<HomeScreen> {
       city = jsonDecode(prayerData)['state'];
       country = jsonDecode(prayerData)['country'];
       iftar = jsonDecode(prayerData)['items'][0]['maghrib'];
+      fajr = jsonDecode(prayerData)['items'][0]['fajr'];
+      setState(() {
+        fajr = stringToTime(fajr);
+      });
       print(
           'IFTAR TIME*****************************************************: $country, $iftar');
     } else {
       print(response.statusCode);
     }
+  }
+
+  stringToTime(String fajr) {
+    String i = '4:14 am';
+
+    int indexOfColon = fajr.indexOf(':');
+    int hrty = int.parse(fajr.substring(0, indexOfColon));
+    print('hrty: $hrty');
+    int minty = int.parse(fajr.substring(indexOfColon + 1, indexOfColon + 2));
+    minty -= 5;
+    print('minty: $minty');
+
+    if (minty.isNegative) {
+      hrty -= 1;
+      minty += 6;
+    }
+    print('new  hrty: $hrty');
+    print('new minty: $minty');
+
+    String n = hrty.toString();
+    n += fajr.substring(indexOfColon, indexOfColon + 1);
+    n += minty.toString();
+    n += fajr.substring(indexOfColon + 2, i.length);
+
+    print('fajr: $fajr');
+    print('Sahur Alert: $n');
+    return n;
   }
 
   getLocation() async {
@@ -71,53 +103,95 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          getHeader(),
-          Expanded(
-            flex: 2,
-            child: Container(
-              margin: EdgeInsets.all(20.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        IftarAlert(
-                          iftarCallback: (bool onOff) {
-                            setState(() {
-                              iftarAlarmOnOff = !iftarAlarmOnOff;
-                            });
-                          },
-                          iftarAlarmOnOff: iftarAlarmOnOff,
-                          iftar: iftar,
-                        ),
-                        SahurAlert(
-                          sahurAlarmOnOff: sahurAlarmOnOff,
-                          sahurCallback: (bool onOff) {
-                            setState(() {
-                              sahurAlarmOnOff = !sahurAlarmOnOff;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(width: 10.0),
-                  Azan(prayerTime: prayerTime)
-                ],
-              ),
-            ),
-          ),
-          CountdownButton(),
-        ],
+      backgroundColor: Colors.grey[300],
+      body: Container(
+        margin: EdgeInsets.all(10.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(flex: 2, child: GetHeader()),
+            Expanded(flex: 4, child: getBody()),
+            Expanded(flex: 1, child: CountdownButton()),
+          ],
+        ),
       ),
     );
   }
+
+  getBody() => Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: AlertCard(
+                    cardTitle: "Iftar Alert",
+                    alertIcon: WeatherIcons.sunrise,
+                    alarmOnOff: iftarAlarmOnOff,
+                    alarmTitle: null,
+                    alarmBody: Text(
+                      iftar != null ? iftar : "--:-- pm",
+                      style: TextStyle(
+                        fontSize: 45,
+                        color: kOldGold,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: 'Snowboarding',
+                      ),
+                    ),
+                    alertCallback: (bool onOff) {
+                      setState(() {
+                        iftarAlarmOnOff = !iftarAlarmOnOff;
+                      });
+                    },
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                Expanded(
+                  child: AlertCard(
+                    cardTitle: "Sahur Alert",
+                    alertIcon: FontAwesomeIcons.solidMoon,
+                    alarmOnOff: sahurAlarmOnOff,
+                    alarmTitle: null,
+                    alarmBody: Text(
+                      fajr != null ? fajr : "--:-- pm",
+                      style: TextStyle(
+                        fontSize: 45,
+                        color: kOldGold,
+                        fontWeight: FontWeight.w300,
+                        fontFamily: 'Snowboarding',
+                      ),
+                    ),
+                    alertCallback: (bool onOff) {
+                      setState(() {
+                        sahurAlarmOnOff = !sahurAlarmOnOff;
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(width: 5.0),
+          Expanded(
+            child: AlertCard(
+              cardTitle: 'Prayer Alert',
+              alertIcon: FontAwesomeIcons.mosque,
+              alarmOnOff: sahurAlarmOnOff,
+              alarmTitle: 'Azan',
+              alarmBody: Expanded(
+                child: AthanList(),
+              ),
+              alertCallback: (bool onOff) {
+                setState(() {
+                  sahurAlarmOnOff = !sahurAlarmOnOff;
+                });
+              },
+            ),
+          ),
+        ],
+      );
 }
 
 class CountdownButton extends StatelessWidget {
@@ -176,392 +250,6 @@ class CountdownButton extends StatelessWidget {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class SahurAlert extends StatelessWidget {
-  final bool sahurAlarmOnOff;
-  final String sahur;
-  final Function sahurCallback;
-  SahurAlert({this.sahurAlarmOnOff, this.sahurCallback, this.sahur});
-
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<PrayerTime>(builder: (context, prayerData, child) {
-      final prayer = prayerData.alarms;
-      return Expanded(
-        flex: 2,
-        child: Card(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(45))),
-          elevation: 1.5,
-          color: Colors.white,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.only(top: 20, left: 10, right: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            FontAwesomeIcons.solidMoon,
-                          ),
-                          CupertinoSwitch(
-                              activeColor: kMetalicGold,
-                              value: sahurAlarmOnOff,
-                              onChanged: (bool alarm) {
-                                prayerData.iftarAlarm;
-                              })
-                        ],
-                      ),
-                      Text(
-                        '4:00 am',
-                        style: TextStyle(
-                            fontSize: 45,
-                            color: kOldGold,
-                            fontWeight: FontWeight.w300,
-                            fontFamily: 'Snowboarding'),
-                      ),
-                      Divider(color: kMetalicGold),
-                      Container(
-                        margin: EdgeInsets.only(bottom: 10),
-                        child: Text(
-                          'Sahur Alert',
-                          style: TextStyle(
-                              fontSize: 22,
-                              color: kOldGold,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'PoiretOne'),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-      );
-    });
-  }
-}
-
-class IftarAlert extends StatelessWidget {
-  final bool iftarAlarmOnOff;
-  final String iftar;
-  final Function iftarCallback;
-
-  IftarAlert({this.iftar, this.iftarCallback, this.iftarAlarmOnOff});
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Card(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(45))),
-        elevation: 1.5,
-        color: Colors.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Container(
-                margin: EdgeInsets.only(top: 20, left: 10, right: 10),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Icon(
-                          WeatherIcons.sunrise,
-                        ),
-                        CupertinoSwitch(
-                            activeColor: kMetalicGold,
-                            value: iftarAlarmOnOff,
-                            onChanged: iftarCallback)
-                      ],
-                    ),
-                    Text(
-                      '6:49 pm',
-                      style: TextStyle(
-                          fontSize: 45,
-                          color: kOldGold,
-                          fontWeight: FontWeight.w300,
-                          fontFamily: 'Snowboarding'),
-                    ),
-                    Divider(color: kMetalicGold),
-                    Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      child: Text(
-                        'Iftar Alert',
-                        style: TextStyle(
-                            fontSize: 22,
-                            color: kOldGold,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'PoiretOne'),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class Azan extends StatefulWidget {
-  final prayerTime;
-  Azan({this.prayerTime});
-  @override
-  _AzanState createState() => _AzanState();
-}
-
-class _AzanState extends State<Azan> {
-  bool isAzanOn = true;
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(45),
-          ),
-        ),
-        elevation: 3.0,
-        color: Colors.white,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              padding: EdgeInsets.only(top: 20, left: 15, right: 15, bottom: 5),
-              child: Row(
-                children: [
-                  Icon(
-                    FontAwesomeIcons.mosque,
-                  ),
-                  Spacer(),
-                  CupertinoSwitch(
-                      activeColor: kMetalicGold,
-                      value: isAzanOn,
-                      onChanged: (bool changeAlert) {
-                        setState(() {
-                          isAzanOn = !isAzanOn;
-                        });
-                      }),
-                ],
-              ),
-            ),
-            Center(
-              child: Container(
-                padding: EdgeInsets.only(left: 10, right: 10),
-                child: Text(
-                  'Azan',
-                  style: TextStyle(
-                    fontSize: 40, color: kOldGold,
-                    //fontWeight: FontWeight.bold,
-                    fontFamily: 'ShadedLarch',
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 1,
-                      ),
-                      decoration: BoxDecoration(
-                        //color: kAmericanGold.withAlpha(40),
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(15),
-                          bottomRight: Radius.circular(15),
-                        ),
-                      ),
-                      child: Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Fajr',
-                              style: TextStyle(
-                                fontSize: 30,
-                                color: kMetalicGold,
-                                fontFamily: 'PoiretOne',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Icon(Icons.check_circle)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 1,
-                      ),
-                      decoration: BoxDecoration(
-                        //color: kAmericanGold.withAlpha(40),
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(15),
-                          bottomRight: Radius.circular(15),
-                        ),
-                      ),
-                      child: Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Dhuhr',
-                              style: TextStyle(
-                                fontSize: 30,
-                                color: kMetalicGold,
-                                fontFamily: 'PoiretOne',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Icon(Icons.check_circle)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 1,
-                      ),
-                      decoration: BoxDecoration(
-                        //  color: kAmericanGold.withAlpha(40),
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(15),
-                          bottomRight: Radius.circular(15),
-                        ),
-                      ),
-                      child: Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Asr',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontFamily: 'PoiretOne',
-                                color: kMetalicGold,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Icon(Icons.check_circle)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 1,
-                      ),
-                      decoration: BoxDecoration(
-                        color: kAmericanGold.withAlpha(40),
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(15),
-                          bottomRight: Radius.circular(15),
-                        ),
-                      ),
-                      child: Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Maghrib',
-                              style: TextStyle(
-                                fontSize: 25,
-                                color: kMetalicGold,
-                                fontFamily: 'PoiretOne',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Icon(Icons.check_circle)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      margin: EdgeInsets.symmetric(
-                        vertical: 1,
-                      ),
-                      decoration: BoxDecoration(
-                        // color: kAmericanGold.withAlpha(40),
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(15),
-                          bottomRight: Radius.circular(15),
-                        ),
-                      ),
-                      child: Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Isha',
-                              style: TextStyle(
-                                fontSize: 30,
-                                color: kMetalicGold,
-                                fontFamily: 'PoiretOne',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            Icon(Icons.check_circle)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Divider(color: kMetalicGold),
-            Container(
-              margin: EdgeInsets.only(top: 10, bottom: 20, left: 10, right: 10),
-              child: Center(
-                  child: Text(
-                'Prayer Alert',
-                style: TextStyle(
-                    fontSize: 22,
-                    color: kOldGold,
-                    fontFamily: 'PoiretOne',
-                    fontWeight: FontWeight.bold),
-              )),
-            ),
-          ],
         ),
       ),
     );

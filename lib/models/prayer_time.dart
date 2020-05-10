@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
@@ -20,9 +21,9 @@ class PrayerTime extends ChangeNotifier {
   String muslimsalat = 'https://muslimsalat.com/kaduna/daily.json?key=$kAPIKEY';
 
   void getPrayerData() async {
-    day = await (DateTime.now().day - 1).toString();
-    month = await DateTime.now().month.toString();
-    year = await DateTime.now().year.toString();
+    day = (DateTime.now().day - 1).toString();
+    month = DateTime.now().month.toString();
+    year = DateTime.now().year.toString();
     String aladhan =
         'http://api.aladhan.com/v1/calendarByCity?city=kaduna&country=Nigeria&method=$day&month=$month&year=$year';
 
@@ -40,6 +41,33 @@ class PrayerTime extends ChangeNotifier {
     }
   }
 
+  stringToTime(String fajr) {
+    String i = '4:14 am';
+
+    int indexOfColon = fajr.indexOf(':');
+    int hrty = int.parse(fajr.substring(0, indexOfColon));
+    print('hrty: $hrty');
+    int minty = int.parse(fajr.substring(indexOfColon + 1, indexOfColon + 2));
+    minty -= 5;
+    print('minty: $minty');
+
+    if (minty.isNegative) {
+      hrty -= 1;
+      minty += 6;
+    }
+    print('new  hrty: $hrty');
+    print('new minty: $minty');
+
+    String n = hrty.toString();
+    n += fajr.substring(indexOfColon, indexOfColon + 1);
+    n += minty.toString();
+    n += fajr.substring(indexOfColon + 2, i.length);
+
+    print('fajr: $fajr');
+    print('Sahur Alert: $n');
+    return n;
+  }
+
   getLocation() async {
     try {
       Position position = await Geolocator()
@@ -50,9 +78,19 @@ class PrayerTime extends ChangeNotifier {
     }
   }
 
-  List<Alarm> alarms = [];
+  List<Alarm> _alarms = [
+    Alarm(name: 'Fajr'),
+    Alarm(name: 'Dhuhr'),
+    Alarm(name: 'Asr'),
+    Alarm(name: 'Magrib'),
+    Alarm(name: 'Isha')
+  ];
 
-  void iftarAlarm(Alarm alarm) {
+  UnmodifiableListView get alarms {
+    return UnmodifiableListView(_alarms);
+  }
+
+  void updateAlarm(Alarm alarm) {
     alarm.switchAlarm();
     notifyListeners();
   }

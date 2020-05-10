@@ -20,7 +20,7 @@ class _CountDownTimerState extends State<CountDownTimer>
     return '${(duration.inHours % 12).toString().padLeft(2, '0')}:${(duration.inMinutes % 60).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
-  start_timer() {
+  startTimer() {
     if (controller.isAnimating)
       controller.stop();
     else {
@@ -39,7 +39,7 @@ class _CountDownTimerState extends State<CountDownTimer>
           minutes: int.parse(widget.countdownMin),
           seconds: int.parse(widget.countdownSec)),
     );
-    start_timer();
+    startTimer();
   }
 
   @override
@@ -75,8 +75,8 @@ class _CountDownTimerState extends State<CountDownTimer>
                                   child: Stack(
                                     children: [
                                       Positioned(
-                                        top: 60,
-                                        left: 30,
+                                        top: 80,
+                                        left: 50,
                                         child: Center(
                                           child: Text(
                                             timerString,
@@ -88,13 +88,13 @@ class _CountDownTimerState extends State<CountDownTimer>
                                         ),
                                       ),
                                       Positioned(
-                                        bottom: 55,
-                                        left: 25,
+                                        bottom: 90,
+                                        left: 40,
                                         child: Center(
                                           child: Text(
                                             "Remaining for Iftar",
                                             style: TextStyle(
-                                                fontSize: 40.0,
+                                                fontSize: 45.0,
                                                 color: kMetalicGold,
                                                 fontFamily: 'Snowboarding'),
                                           ),

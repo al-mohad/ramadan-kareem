@@ -16,6 +16,7 @@ class _CountdownScreenState extends State<CountdownScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -37,64 +38,24 @@ class _CountdownScreenState extends State<CountdownScreen> {
               SizedBox(height: 10.0),
               Expanded(
                   child: CountDownTimer(
-                      countdownHrs: '3', countdownMin: '0', countdownSec: '0')),
+                      countdownHrs: '0',
+                      countdownMin: '0',
+                      countdownSec: '10'
+                          '')),
               SizedBox(height: 10.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 150,
-                    width: 150,
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(35))),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(FontAwesomeIcons.businessTime),
-                        Text(
-                          'Isha',
-                          style: TextStyle(
-                              fontSize: 45,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Shine',
-                              color: kMetalicGold),
-                        ),
-                        Text(
-                          'in 3:56 hrs',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    ),
+                  InfoCard(
+                    icon: FontAwesomeIcons.clock,
+                    title: 'Isha',
+                    subtitle: 'in 3:56 hrs',
                   ),
-                  Container(
-                    height: 150,
-                    width: 150,
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(35))),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(FontAwesomeIcons.thermometerThreeQuarters),
-                        Text(
-                          '28oC',
-                          style: TextStyle(
-                              fontSize: 45,
-                              fontWeight: FontWeight.w400,
-                              color: kMetalicGold,
-                              fontFamily: 'Les'),
-                        ),
-                        Text(
-                          'Today',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    ),
+                  SizedBox(width: 10.0),
+                  InfoCard(
+                    icon: FontAwesomeIcons.thermometerThreeQuarters,
+                    title: '28°C',
+                    subtitle: 'Today',
                   ),
                 ],
               ),
@@ -138,6 +99,62 @@ class _CountdownScreenState extends State<CountdownScreen> {
               BackButton()
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class InfoCard extends StatelessWidget {
+  final IconData icon;
+  final String title;
+  final String subtitle;
+
+  InfoCard({this.icon, this.title, this.subtitle});
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.all(Radius.circular(35))),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
+                  size: 45,
+                ),
+                SizedBox(
+                  width: 10.0,
+                ),
+                Text(
+                  title,
+                  style: TextStyle(
+                      fontSize: 45,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'riesling',
+                      color: kMetalicGold),
+                ),
+              ],
+            ),
+            Center(
+              child: Text(
+                subtitle,
+                style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'PoiretOne'),
+              ),
+            ),
+          ],
         ),
       ),
     );
