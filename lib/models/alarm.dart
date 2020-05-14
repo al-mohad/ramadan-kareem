@@ -7,7 +7,7 @@ class Alarm {
 
   Alarm({
     @required this.name,
-    this.onOrOff = false,
+    this.onOrOff = true,
     this.time,
   });
 

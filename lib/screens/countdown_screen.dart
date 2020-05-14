@@ -166,53 +166,32 @@ class BackButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => Navigator.pop(context),
-      child: Container(
-        height: 150,
-        width: 150,
-        decoration: BoxDecoration(
-          color: kMetalicGold,
-          borderRadius: BorderRadius.all(
-            Radius.circular(80),
-          ),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
         ),
-        child: Center(
-          child: Stack(
-            children: [
-              Positioned(
-                bottom: 70,
-                left: 35,
-                top: 45,
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.white,
-                  size: 55,
-                ),
-              ),
-              Positioned(
-                bottom: 70,
-                left: 15,
-                top: 45,
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: kGoldenPoppy.withOpacity(0.5),
-                  size: 55,
-                ),
-              ),
-              Positioned(
-                bottom: 60,
-                left: 75,
-                top: 60,
-                child: Text(
-                  'Back',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontFamily: 'PoiretOne',
-                      fontWeight: FontWeight.bold),
-                ),
-              )
-            ],
-          ),
+        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.keyboard_arrow_left,
+              color: kGoldenPoppy.withOpacity(0.5),
+              size: 55,
+            ),
+            Icon(
+              Icons.keyboard_arrow_left,
+              color: kGoldenPoppy.withOpacity(0.5),
+              size: 55,
+            ),
+            Text(
+              'BACK',
+              style: TextStyle(
+                  fontFamily: 'PoiretOne',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18),
+            ),
+          ],
         ),
       ),
     );

@@ -5,6 +5,7 @@ import 'package:ramadankareem/utils/constants.dart';
 class AthanTile extends StatelessWidget {
   final String athanTitle;
   final bool isActive;
+
   final Function alarmCallback;
 
   const AthanTile({this.athanTitle, this.isActive, this.alarmCallback});

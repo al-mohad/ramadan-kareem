@@ -43,6 +43,12 @@ class _CountDownTimerState extends State<CountDownTimer>
   }
 
   @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white10,
