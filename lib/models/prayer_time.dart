@@ -6,7 +6,11 @@ import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:ramadankareem/models/alarm.dart';
 import 'package:ramadankareem/utils/constants.dart';
+import 'package:ramadankareem/utils/functions.dart';
 
+// This is a Singleton class, meaning only one object
+// can be created from this class. If another object is
+// initialized, the first object instance would be returned.
 class PrayerTime extends ChangeNotifier {
   // singleton
   static final PrayerTime _prayerTime = PrayerTime._internal();
@@ -20,12 +24,29 @@ class PrayerTime extends ChangeNotifier {
 
   static int instance = 0;
 
+  List<Alarm> _alarms = [
+    Alarm(name: 'Fajr'),
+    Alarm(name: 'Dhuhr'),
+    Alarm(name: 'Asr'),
+    Alarm(name: 'Magrib'),
+    Alarm(name: 'Isha')
+  ];
+
+  List<String> prayers = [
+    'Fajr',
+    'Dhuhr',
+    'Asr',
+    'Maghrib',
+    'Isha',
+  ];
+
   String sahur;
-  String fajr;
-  String iftar;
 
   bool iftarAlarmOnOff = true;
   bool sahurAlarmOnOff = true;
+  bool prayerAlarmOnOff = true;
+
+  Alarm nextAlarm;
 
   String muslimsalat = 'https://muslimsalat.com/kaduna/daily.json?key=$kAPIKEY';
 
@@ -42,9 +63,7 @@ class PrayerTime extends ChangeNotifier {
   String city = 'Kaduna';
   String state = 'Kaduna';
   String country = 'Nigeria';
-  String timezone;
-  String month, year;
-  int day;
+  int day, month, year;
 
   getLocation() async {
     try {
@@ -60,10 +79,10 @@ class PrayerTime extends ChangeNotifier {
 
   getPrayerData() async {
     print('getPrayerData() has been called');
-    timestamp = DateTime.now().microsecondsSinceEpoch;
+    timestamp = DateTime.now().millisecondsSinceEpoch;
     day = DateTime.now().day;
-    month = DateTime.now().month.toString();
-    year = DateTime.now().year.toString();
+    month = DateTime.now().month;
+    year = DateTime.now().year;
 
     print('DD-MM-YYYY: $day-$month-$year');
 
@@ -92,71 +111,66 @@ class PrayerTime extends ChangeNotifier {
     print('url: $calenderByCity');
 
     http.Response response = await http.get(calenderByCity);
-    print("response: ${response.body}");
 
     if (response.statusCode == 200) {
-      String prayerData = response.body;
+      var decodedJson = jsonDecode(response.body);
 
-      iftar = jsonDecode(prayerData)['data'][day - 1]['timings']
-          ['Maghrib']; //data.timings.Maghrib
-      fajr = jsonDecode(prayerData)['data'][day - 1]['timings']
-          ['Fajr']; // data[13].timings.Fajr
-      timezone = jsonDecode(prayerData)['data'][day - 1]['meta']['timezone'];
-      sahur = fajrToSahur(fajr);
-      String meth =
-          jsonDecode(prayerData)['data'][day - 1]['meta']['method']['name'];
-      print('SAHUR TIME*************************: $timezone, $meth');
+      sahur = fajrToSahur(decodedJson['data'][day - 1]['timings']['Fajr']);
+
+      for (int i = 0; i < alarms.length; i++) {
+        String s =
+            apiToTime(decodedJson['data'][day - 1]['timings'][prayers[i]]);
+
+        DateTime d = apiToDateTime(s, year, month, day);
+
+        setTimes(alarms[i], s, d);
+      }
+      setNextAlarm();
     } else {
       print(response.statusCode);
       print('could not get prayerData');
+      setNextAlarm();
     }
 
     notifyListeners();
   }
 
-  fajrToSahur(String fajr) {
-    // Format of String fajr = 17:37';
-
-    fajr += ' ';
-
-    int indexOfColon = fajr.indexOf(':');
-    int hrty = int.parse(fajr.substring(0, indexOfColon));
-    print('hrty: $hrty');
-    int minty = int.parse(fajr.substring(indexOfColon + 1, indexOfColon + 3));
-    print('minty: $minty');
-
-    minty -= 50;
-    if (minty.isNegative) {
-      hrty = hrty == 0 ? 24 - 1 : hrty - 1;
-      minty += 60;
-    }
-    print('new hrty: $hrty');
-    print('new minty: $minty');
-
-    String n = hrty < 10 ? '0$hrty' : hrty.toString();
-    n += ':';
-    n += minty < 10 ? '0$minty' : minty.toString();
-    n += hrty < 12 ? ' am' : ' pm';
-
-    print('fajr: $fajr');
-    print('Sahur Alert: $n');
-    return n;
-  }
-
-  List<Alarm> _alarms = [
-    Alarm(name: 'Fajr'),
-    Alarm(name: 'Dhuhr'),
-    Alarm(name: 'Asr'),
-    Alarm(name: 'Magrib'),
-    Alarm(name: 'Isha')
-  ];
+  // Alarms
 
   UnmodifiableListView get alarms {
     return UnmodifiableListView(_alarms);
   }
 
-  void updateAlarm(Alarm alarm) {
-    alarm.switchAlarm();
+  void setTimes(Alarm alarm, String s, DateTime d) {
+    alarm.setSTime = s;
+    alarm.setDTime = d;
+
+    print('${alarm.name}: ${alarm.getSTime} :: ${alarm.getDTime}');
+  }
+
+  void setNextAlarm() {
+    removePreviousAlarm();
+    for (Alarm alarm in alarms) {
+      var now = DateTime(2020, 5, 18, 9, 30);
+      var prayer = alarm.getDTime;
+
+      if (now.isBefore(prayer)) {
+        nextAlarm = alarm;
+        break;
+      }
+      nextAlarm = alarms[0];
+    }
+    updateAlarm(nextAlarm, true);
+  }
+
+  void updateAlarm(Alarm alarm, bool onOff) {
+    alarm.toogleNextAlarm(onOff);
     notifyListeners();
+  }
+
+  void removePreviousAlarm() {
+    if (nextAlarm != null) {
+      updateAlarm(nextAlarm, false);
+    }
   }
 }

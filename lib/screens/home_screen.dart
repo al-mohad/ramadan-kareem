@@ -1,11 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:ramadankareem/components/alert_card.dart';
 import 'package:ramadankareem/components/athan_list.dart';
@@ -26,14 +22,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // getPrayerData();
     prayerTime.getLocation();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.white,
       body: Container(
         margin: EdgeInsets.all(10.0),
         child: Column(
@@ -49,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   getBody() => Container(
+        margin: EdgeInsets.symmetric(horizontal: 15.0),
         child: Consumer<PrayerTime>(
           builder: (context, prayerData, child) {
             return Row(
@@ -64,71 +60,75 @@ class _HomeScreenState extends State<HomeScreen> {
                           alertIcon: WeatherIcons.sunrise,
                           alarmOnOff: prayerData.iftarAlarmOnOff,
                           alarmTitle: null,
-                          alarmBody: Text(
-                            prayerData.iftar != null
-                                ? prayerData.iftar
-                                : "--:-- pm",
-                            style: TextStyle(
-                              fontSize: 45,
-                              color: kOldGold,
-                              fontWeight: FontWeight.w300,
-                              fontFamily: 'Snowboarding',
+                          alarmBody: Container(
+                            padding: EdgeInsets.only(left: kCardPadding),
+                            child: Text(
+                              prayerData.alarms[3].getSTime != null
+                                  ? prayerData.alarms[3].getSTime
+                                  : "18:28",
+                              style: TextStyle(
+                                letterSpacing: -3,
+                                fontSize: 40,
+                                color: kOldGold,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                           alertCallback: (bool onOff) {
                             setState(() {
-                              prayerData.iftarAlarmOnOff =
-                                  !prayerData.iftarAlarmOnOff;
+                              prayerData.iftarAlarmOnOff = onOff;
                             });
-                            print('PrayerTime: ${PrayerTime.instance}');
+                            print(
+                                'Magrib Time: ${prayerData.alarms[3].getDTime}');
                           },
                         ),
                       ),
-                      SizedBox(height: 5.0),
+                      SizedBox(height: 15.0),
                       Expanded(
                         child: AlertCard(
                           cardTitle: "Sahur Alert",
                           alertIcon: FontAwesomeIcons.solidMoon,
                           alarmOnOff: prayerData.sahurAlarmOnOff,
                           alarmTitle: null,
-                          alarmBody: Text(
-                            prayerData.sahur != null
-                                ? prayerData.sahur
-                                : "--:-- pm",
-                            style: TextStyle(
-                              fontSize: 45,
-                              color: kOldGold,
-                              fontWeight: FontWeight.w300,
-                              fontFamily: 'Snowboarding',
+                          alarmBody: Container(
+                            padding: EdgeInsets.only(left: kCardPadding),
+                            child: Text(
+                              prayerData.sahur != null
+                                  ? prayerData.sahur
+                                  : "4:10",
+                              style: TextStyle(
+                                letterSpacing: -3,
+                                fontSize: 40,
+                                color: kOldGold,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                           ),
                           alertCallback: (bool onOff) {
                             setState(() {
-                              prayerData.sahurAlarmOnOff =
-                                  !prayerData.sahurAlarmOnOff;
+                              prayerData.sahurAlarmOnOff = onOff;
                             });
-                            print('PrayerTime: ${PrayerTime.instance}');
+                            print(
+                                'Fajr Time: ${prayerData.alarms[0].getDTime}');
                           },
                         ),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(width: 5.0),
+                SizedBox(width: 15.0),
                 Expanded(
                   child: AlertCard(
                     cardTitle: 'Prayer Alert',
                     alertIcon: FontAwesomeIcons.mosque,
-                    alarmOnOff: prayerData.sahurAlarmOnOff,
+                    alarmOnOff: prayerData.prayerAlarmOnOff,
                     alarmTitle: 'Azan',
-                    alarmBody: Expanded(
-                      child: AthanList(),
-                    ),
+                    alarmBody: AthanList(),
                     alertCallback: (bool onOff) {
                       setState(() {
-                        prayerData.sahurAlarmOnOff =
-                            !prayerData.sahurAlarmOnOff;
+                        prayerData.prayerAlarmOnOff = onOff;
                       });
+                      print('Prayer Alarm: ${prayerData.prayerAlarmOnOff}');
                     },
                   ),
                 ),

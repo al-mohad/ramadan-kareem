@@ -70,6 +70,9 @@ flutter:
      - family: PoiretOne
        fonts:
          - asset: fonts/PoiretOne-Regular.ttf
+     - family: CircularStd
+       fonts:
+         - asset: fonts/CircularStd-Black.ttf
      - family: Billabong
        fonts:
          - asset: fonts/Billabong.ttf

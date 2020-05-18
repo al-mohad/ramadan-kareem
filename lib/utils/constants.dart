@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 const kGold = Color(0xffffd700);
 const kMetalicGold = Color(0xffd4af37);
@@ -12,3 +13,26 @@ const kGoldenCrest = Color(0xfff6ca69);
 const kGoldenKiwi = Color(0xfff3dd3e);
 
 const kAPIKEY = '9e9f5d5ff75d1c5db7adb8aeab20d5ff';
+
+const kNextPrayerTileDecoration = BoxDecoration(
+  color: kGoldenYellow,
+  borderRadius: BorderRadius.only(
+    topRight: Radius.circular(15.0),
+    bottomRight: Radius.circular(15.0),
+  ),
+);
+
+const kCardShape = RoundedRectangleBorder(
+  borderRadius: BorderRadius.all(
+    Radius.circular(35),
+  ),
+);
+
+const kCardShadow = [
+  BoxShadow(
+    color: Color(0xFFE0E0E0),
+    blurRadius: 30.0,
+  )
+];
+
+const kCardPadding = 20.0;

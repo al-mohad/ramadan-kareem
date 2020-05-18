@@ -24,52 +24,60 @@ class AlertCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        boxShadow: kCardShadow,
+      ),
       child: Consumer<PrayerTime>(builder: (context, prayerData, child) {
         return Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(45),
-            ),
-          ),
-          elevation: 1.5,
+          shape: kCardShape,
+          elevation: 0.0,
           color: Colors.white,
           child: Container(
-            margin: EdgeInsets.all(15.0),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Icon(
-                      alertIcon,
-                    ),
-                    CupertinoSwitch(
-                      activeColor: kMetalicGold,
-                      value: alarmOnOff,
-                      onChanged: alertCallback,
-                    )
-                  ],
-                ),
-                alarmTitle != null
-                    ? Text(
-                        alarmTitle,
-                        style: TextStyle(
-                            fontSize: 40,
-                            color: kOldGold,
-                            fontFamily: 'ShadedLarch'),
-                      )
-                    : SizedBox(),
-                Container(child: alarmBody),
-                Divider(color: kMetalicGold),
                 Container(
+                  margin: EdgeInsets.only(
+                      top: kCardPadding,
+                      right: kCardPadding - 5,
+                      left: kCardPadding,
+                      bottom: kCardPadding),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Icon(
+                        alertIcon,
+                      ),
+                      CupertinoSwitch(
+                        activeColor: kMetalicGold,
+                        value: alarmOnOff,
+                        onChanged: alertCallback,
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: kCardPadding),
+                  child: alarmTitle != null
+                      ? Text(
+                          alarmTitle,
+                          style: TextStyle(
+                              fontSize: 40,
+                              color: kOldGold,
+                              fontWeight: FontWeight.w500),
+                        )
+                      : SizedBox(),
+                ),
+                Container(child: alarmBody),
+                Container(
+                  margin: EdgeInsets.all(kCardPadding),
                   child: Text(
                     cardTitle,
                     style: TextStyle(
-                        fontSize: 22.0,
+                        fontSize: 15.0,
                         color: kOldGold,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'PoiretOne'),
+                        fontWeight: FontWeight.w500),
                   ),
                 ),
               ],
