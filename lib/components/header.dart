@@ -6,7 +6,7 @@ class GetHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 50.0, left: 15.0, right: 15.0, bottom: 20.0),
+      margin: EdgeInsets.only(top: 50.0, left: 5.0, right: 5.0, bottom: 20.0),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

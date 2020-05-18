@@ -22,17 +22,18 @@ const kNextPrayerTileDecoration = BoxDecoration(
   ),
 );
 
-const kCardShape = RoundedRectangleBorder(
-  borderRadius: BorderRadius.all(
-    Radius.circular(35),
-  ),
-);
-
 const kCardShadow = [
   BoxShadow(
     color: Color(0xFFE0E0E0),
     blurRadius: 30.0,
   )
 ];
+
+const kCardShape = BoxDecoration(
+  color: Colors.white,
+  borderRadius: BorderRadius.all(
+    Radius.circular(35),
+  ),
+);
 
 const kCardPadding = 20.0;

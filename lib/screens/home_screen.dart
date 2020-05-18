@@ -22,15 +22,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    prayerTime.getLocation();
+    prayerTime.getStarted();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey.shade300,
       body: Container(
-        margin: EdgeInsets.all(10.0),
+        margin: EdgeInsets.all(kCardPadding),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   getBody() => Container(
-        margin: EdgeInsets.symmetric(horizontal: 15.0),
+        margin: EdgeInsets.symmetric(horizontal: 5.0),
         child: Consumer<PrayerTime>(
           builder: (context, prayerData, child) {
             return Row(
@@ -78,12 +78,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             setState(() {
                               prayerData.iftarAlarmOnOff = onOff;
                             });
+                            prayerData.notify();
                             print(
                                 'Magrib Time: ${prayerData.alarms[3].getDTime}');
                           },
                         ),
                       ),
-                      SizedBox(height: 15.0),
                       Expanded(
                         child: AlertCard(
                           cardTitle: "Sahur Alert",
@@ -142,41 +142,56 @@ class _HomeScreenState extends State<HomeScreen> {
 class CountdownButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.push(
-        context,
-        CupertinoPageRoute(
-          builder: (_) => CountdownScreen(),
-        ),
-      ),
-      child: Card(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(30),
-        ),
-        margin: EdgeInsets.symmetric(vertical: 20, horizontal: 12),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'COUNTDOWN',
-              style: TextStyle(
-                  fontFamily: 'PoiretOne',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        GestureDetector(
+          onTap: () => prayerTime.getPrayerData(),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
             ),
-            Icon(
-              Icons.keyboard_arrow_right,
+            child: Icon(
+              Icons.refresh,
               color: kGoldenPoppy.withOpacity(0.5),
               size: 55,
             ),
-            Icon(
-              Icons.keyboard_arrow_right,
-              color: kGoldenPoppy.withOpacity(0.5),
-              size: 55,
-            ),
-          ],
+          ),
         ),
-      ),
+        GestureDetector(
+          onTap: () => Navigator.push(
+            context,
+            CupertinoPageRoute(
+              builder: (_) => CountdownScreen(),
+            ),
+          ),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Icon(
+                  Icons.timer,
+                  color: kGoldenPoppy.withOpacity(0.5),
+                  size: 55,
+                ),
+                Icon(
+                  Icons.keyboard_arrow_right,
+                  color: kGoldenPoppy.withOpacity(0.5),
+                  size: 55,
+                ),
+                Icon(
+                  Icons.keyboard_arrow_right,
+                  color: kGoldenPoppy.withOpacity(0.5),
+                  size: 55,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

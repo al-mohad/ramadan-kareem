@@ -5,6 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:ramadankareem/models/alarm.dart';
+import 'package:ramadankareem/services/location.dart';
+import 'package:ramadankareem/services/networking.dart';
+import 'package:ramadankareem/services/weather.dart';
 import 'package:ramadankareem/utils/constants.dart';
 import 'package:ramadankareem/utils/functions.dart';
 
@@ -23,6 +26,10 @@ class PrayerTime extends ChangeNotifier {
   PrayerTime._internal(); // private constructor
 
   static int instance = 0;
+
+  Location location;
+  NetworkHelper timeNetworkHelper;
+  dynamic weatherData;
 
   List<Alarm> _alarms = [
     Alarm(name: 'Fajr'),
@@ -56,7 +63,6 @@ class PrayerTime extends ChangeNotifier {
   String calenderByCity = 'http://api.aladhan.com/v1/calendarByCity';
 
   int timestamp; // Number of seconds since Epoch
-  Position position;
   int method = 2; // 2 for Islamic Society of North America ISNA
   int school = 0; // 0 for Shafii, Maliki & Hanbali while 1 for Hanafi
   String address = 'Central Mosque, Abuja, Nigeria';
@@ -65,74 +71,62 @@ class PrayerTime extends ChangeNotifier {
   String country = 'Nigeria';
   int day, month, year;
 
-  getLocation() async {
-    try {
-      position = await Geolocator()
-          .getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
-      print(position);
-    } catch (e) {
-      print(e);
-    }
+  String url;
 
+  void getStarted() async {
+    location = Location();
+    await location.getCurrentLocation();
+    weatherData = await WeatherModel().getLocationWeather();
     getPrayerData();
   }
 
   getPrayerData() async {
-    print('getPrayerData() has been called');
-    timestamp = DateTime.now().millisecondsSinceEpoch;
+    url = '';
     day = DateTime.now().day;
     month = DateTime.now().month;
     year = DateTime.now().year;
 
-    print('DD-MM-YYYY: $day-$month-$year');
-
-    timings += '/$timestamp';
-    timings += '?latitude=${position.latitude}';
-    timings += '&longitude=${position.longitude}';
-    timings += '&method=$method';
-    timings += '&school=$school';
+    // timings += '/$timestamp';
+    // timings += '?latitude=${position.latitude}';
+    // timings += '&longitude=${position.longitude}';
+    // timings += '&method=$method';
+    // timings += '&school=$school';
     // print('url: $timings');
 
-    timingsByAddress += '?address=$address';
-    timingsByAddress += '&method=$method';
-    timingsByAddress += '&school=$school';
+    // timingsByAddress += '?address=$address';
+    // timingsByAddress += '&method=$method';
+    // timingsByAddress += '&school=$school';
 
-    timingsByCity += '?city=$city';
-    timingsByCity += '&state=$state';
-    timingsByCity += '&country=$country';
-    timingsByCity += '&method=$method';
-    timingsByCity += '&school=$school';
+    // timingsByCity += '?city=$city';
+    // timingsByCity += '&state=$state';
+    // timingsByCity += '&country=$country';
+    // timingsByCity += '&method=$method';
+    // timingsByCity += '&school=$school';
 
-    calenderByCity += '?city=$city';
-    calenderByCity += '&country=$country';
-    calenderByCity += '&method=$method';
-    calenderByCity += '&month=$month';
-    calenderByCity += '&year=$year';
-    print('url: $calenderByCity');
+    url += calenderByCity;
+    url += '?city=$city';
+    url += '&country=$country';
+    url += '&method=$method';
+    url += '&month=$month';
+    url += '&year=$year';
+    print('url: $url');
 
-    http.Response response = await http.get(calenderByCity);
+    timeNetworkHelper = NetworkHelper(url: url);
+    dynamic timeData = await timeNetworkHelper.getData();
 
-    if (response.statusCode == 200) {
-      var decodedJson = jsonDecode(response.body);
-
-      sahur = fajrToSahur(decodedJson['data'][day - 1]['timings']['Fajr']);
+    if (timeData != null) {
+      sahur = fajrToSahur(timeData['data'][day - 1]['timings']['Fajr']);
 
       for (int i = 0; i < alarms.length; i++) {
-        String s =
-            apiToTime(decodedJson['data'][day - 1]['timings'][prayers[i]]);
+        String s = apiToTime(timeData['data'][day - 1]['timings'][prayers[i]]);
 
         DateTime d = apiToDateTime(s, year, month, day);
 
         setTimes(alarms[i], s, d);
       }
-      setNextAlarm();
-    } else {
-      print(response.statusCode);
-      print('could not get prayerData');
+
       setNextAlarm();
     }
-
-    notifyListeners();
   }
 
   // Alarms
@@ -150,17 +144,22 @@ class PrayerTime extends ChangeNotifier {
 
   void setNextAlarm() {
     removePreviousAlarm();
-    for (Alarm alarm in alarms) {
-      var now = DateTime(2020, 5, 18, 9, 30);
-      var prayer = alarm.getDTime;
+    try {
+      for (Alarm alarm in alarms) {
+        // var now = DateTime(2020, 5, 18, 19, 30);
+        var now = DateTime.now();
+        var prayer = alarm.getDTime;
 
-      if (now.isBefore(prayer)) {
-        nextAlarm = alarm;
-        break;
+        if (now.isBefore(prayer)) {
+          nextAlarm = alarm;
+          break;
+        }
+        nextAlarm = alarms[0];
       }
-      nextAlarm = alarms[0];
+      updateAlarm(nextAlarm, true);
+    } catch (e) {
+      print('##setNextAlarm##: $e');
     }
-    updateAlarm(nextAlarm, true);
   }
 
   void updateAlarm(Alarm alarm, bool onOff) {
@@ -172,5 +171,9 @@ class PrayerTime extends ChangeNotifier {
     if (nextAlarm != null) {
       updateAlarm(nextAlarm, false);
     }
+  }
+
+  void notify() {
+    notifyListeners();
   }
 }
