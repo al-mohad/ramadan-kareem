@@ -1,0 +1,2529 @@
+{
+    "code": 200,
+    "status": "OK",
+    "data": [
+        {
+            "timings": {
+                "Fajr": "05:12 (WAT)",
+                "Sunrise": "06:12 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:41 (WAT)",
+                "Sunset": "18:43 (WAT)",
+                "Maghrib": "18:43 (WAT)",
+                "Isha": "19:43 (WAT)",
+                "Imsak": "05:02 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "01 May 2020",
+                "timestamp": "1588320061",
+                "gregorian": {
+                    "date": "01-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "01",
+                    "weekday": {
+                        "en": "Friday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "08-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "08",
+                    "weekday": {
+                        "en": "Al Juma'a",
+                        "ar": "الجمعة"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:12 (WAT)",
+                "Sunrise": "06:12 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:42 (WAT)",
+                "Sunset": "18:43 (WAT)",
+                "Maghrib": "18:43 (WAT)",
+                "Isha": "19:43 (WAT)",
+                "Imsak": "05:02 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "02 May 2020",
+                "timestamp": "1588406461",
+                "gregorian": {
+                    "date": "02-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "02",
+                    "weekday": {
+                        "en": "Saturday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "09-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "09",
+                    "weekday": {
+                        "en": "Al Sabt",
+                        "ar": "السبت"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:11 (WAT)",
+                "Sunrise": "06:12 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:42 (WAT)",
+                "Sunset": "18:43 (WAT)",
+                "Maghrib": "18:43 (WAT)",
+                "Isha": "19:43 (WAT)",
+                "Imsak": "05:01 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "03 May 2020",
+                "timestamp": "1588492861",
+                "gregorian": {
+                    "date": "03-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "03",
+                    "weekday": {
+                        "en": "Sunday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "10-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "10",
+                    "weekday": {
+                        "en": "Al Ahad",
+                        "ar": "الاحد"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:11 (WAT)",
+                "Sunrise": "06:11 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:43 (WAT)",
+                "Sunset": "18:43 (WAT)",
+                "Maghrib": "18:43 (WAT)",
+                "Isha": "19:44 (WAT)",
+                "Imsak": "05:01 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "04 May 2020",
+                "timestamp": "1588579261",
+                "gregorian": {
+                    "date": "04-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "04",
+                    "weekday": {
+                        "en": "Monday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "11-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "11",
+                    "weekday": {
+                        "en": "Al Athnayn",
+                        "ar": "الاثنين"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:10 (WAT)",
+                "Sunrise": "06:11 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:43 (WAT)",
+                "Sunset": "18:43 (WAT)",
+                "Maghrib": "18:43 (WAT)",
+                "Isha": "19:44 (WAT)",
+                "Imsak": "05:00 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "05 May 2020",
+                "timestamp": "1588665661",
+                "gregorian": {
+                    "date": "05-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "05",
+                    "weekday": {
+                        "en": "Tuesday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "12-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "12",
+                    "weekday": {
+                        "en": "Al Thalaata",
+                        "ar": "الثلاثاء"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:10 (WAT)",
+                "Sunrise": "06:11 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:43 (WAT)",
+                "Sunset": "18:43 (WAT)",
+                "Maghrib": "18:43 (WAT)",
+                "Isha": "19:44 (WAT)",
+                "Imsak": "05:00 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "06 May 2020",
+                "timestamp": "1588752061",
+                "gregorian": {
+                    "date": "06-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "06",
+                    "weekday": {
+                        "en": "Wednesday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "13-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "13",
+                    "weekday": {
+                        "en": "Al Arba'a",
+                        "ar": "الاربعاء"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:09 (WAT)",
+                "Sunrise": "06:10 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:44 (WAT)",
+                "Sunset": "18:43 (WAT)",
+                "Maghrib": "18:43 (WAT)",
+                "Isha": "19:45 (WAT)",
+                "Imsak": "04:59 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "07 May 2020",
+                "timestamp": "1588838461",
+                "gregorian": {
+                    "date": "07-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "07",
+                    "weekday": {
+                        "en": "Thursday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "14-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "14",
+                    "weekday": {
+                        "en": "Al Khamees",
+                        "ar": "الخميس"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:09 (WAT)",
+                "Sunrise": "06:10 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:44 (WAT)",
+                "Sunset": "18:44 (WAT)",
+                "Maghrib": "18:44 (WAT)",
+                "Isha": "19:45 (WAT)",
+                "Imsak": "04:59 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "08 May 2020",
+                "timestamp": "1588924861",
+                "gregorian": {
+                    "date": "08-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "08",
+                    "weekday": {
+                        "en": "Friday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "15-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "15",
+                    "weekday": {
+                        "en": "Al Juma'a",
+                        "ar": "الجمعة"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:09 (WAT)",
+                "Sunrise": "06:10 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:45 (WAT)",
+                "Sunset": "18:44 (WAT)",
+                "Maghrib": "18:44 (WAT)",
+                "Isha": "19:45 (WAT)",
+                "Imsak": "04:59 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "09 May 2020",
+                "timestamp": "1589011261",
+                "gregorian": {
+                    "date": "09-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "09",
+                    "weekday": {
+                        "en": "Saturday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "16-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "16",
+                    "weekday": {
+                        "en": "Al Sabt",
+                        "ar": "السبت"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:08 (WAT)",
+                "Sunrise": "06:10 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:45 (WAT)",
+                "Sunset": "18:44 (WAT)",
+                "Maghrib": "18:44 (WAT)",
+                "Isha": "19:45 (WAT)",
+                "Imsak": "04:58 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "10 May 2020",
+                "timestamp": "1589097661",
+                "gregorian": {
+                    "date": "10-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "10",
+                    "weekday": {
+                        "en": "Sunday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "17-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "17",
+                    "weekday": {
+                        "en": "Al Ahad",
+                        "ar": "الاحد"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:08 (WAT)",
+                "Sunrise": "06:09 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:46 (WAT)",
+                "Sunset": "18:44 (WAT)",
+                "Maghrib": "18:44 (WAT)",
+                "Isha": "19:46 (WAT)",
+                "Imsak": "04:58 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "11 May 2020",
+                "timestamp": "1589184061",
+                "gregorian": {
+                    "date": "11-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "11",
+                    "weekday": {
+                        "en": "Monday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "18-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "18",
+                    "weekday": {
+                        "en": "Al Athnayn",
+                        "ar": "الاثنين"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:08 (WAT)",
+                "Sunrise": "06:09 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:46 (WAT)",
+                "Sunset": "18:44 (WAT)",
+                "Maghrib": "18:44 (WAT)",
+                "Isha": "19:46 (WAT)",
+                "Imsak": "04:58 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "12 May 2020",
+                "timestamp": "1589270461",
+                "gregorian": {
+                    "date": "12-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "12",
+                    "weekday": {
+                        "en": "Tuesday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "19-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "19",
+                    "weekday": {
+                        "en": "Al Thalaata",
+                        "ar": "الثلاثاء"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:07 (WAT)",
+                "Sunrise": "06:09 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:46 (WAT)",
+                "Sunset": "18:45 (WAT)",
+                "Maghrib": "18:45 (WAT)",
+                "Isha": "19:46 (WAT)",
+                "Imsak": "04:57 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "13 May 2020",
+                "timestamp": "1589356861",
+                "gregorian": {
+                    "date": "13-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "13",
+                    "weekday": {
+                        "en": "Wednesday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "20-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "20",
+                    "weekday": {
+                        "en": "Al Arba'a",
+                        "ar": "الاربعاء"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:07 (WAT)",
+                "Sunrise": "06:09 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:47 (WAT)",
+                "Sunset": "18:45 (WAT)",
+                "Maghrib": "18:45 (WAT)",
+                "Isha": "19:47 (WAT)",
+                "Imsak": "04:57 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "14 May 2020",
+                "timestamp": "1589443261",
+                "gregorian": {
+                    "date": "14-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "14",
+                    "weekday": {
+                        "en": "Thursday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "21-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "21",
+                    "weekday": {
+                        "en": "Al Khamees",
+                        "ar": "الخميس"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [
+                        "Lailat-ul-Qadr"
+                    ]
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:07 (WAT)",
+                "Sunrise": "06:08 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:47 (WAT)",
+                "Sunset": "18:45 (WAT)",
+                "Maghrib": "18:45 (WAT)",
+                "Isha": "19:47 (WAT)",
+                "Imsak": "04:57 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "15 May 2020",
+                "timestamp": "1589529661",
+                "gregorian": {
+                    "date": "15-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "15",
+                    "weekday": {
+                        "en": "Friday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "22-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "22",
+                    "weekday": {
+                        "en": "Al Juma'a",
+                        "ar": "الجمعة"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:06 (WAT)",
+                "Sunrise": "06:08 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:48 (WAT)",
+                "Sunset": "18:45 (WAT)",
+                "Maghrib": "18:45 (WAT)",
+                "Isha": "19:47 (WAT)",
+                "Imsak": "04:56 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "16 May 2020",
+                "timestamp": "1589616061",
+                "gregorian": {
+                    "date": "16-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "16",
+                    "weekday": {
+                        "en": "Saturday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "23-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "23",
+                    "weekday": {
+                        "en": "Al Sabt",
+                        "ar": "السبت"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [
+                        "Lailat-ul-Qadr"
+                    ]
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:06 (WAT)",
+                "Sunrise": "06:08 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:48 (WAT)",
+                "Sunset": "18:45 (WAT)",
+                "Maghrib": "18:45 (WAT)",
+                "Isha": "19:48 (WAT)",
+                "Imsak": "04:56 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "17 May 2020",
+                "timestamp": "1589702461",
+                "gregorian": {
+                    "date": "17-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "17",
+                    "weekday": {
+                        "en": "Sunday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "24-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "24",
+                    "weekday": {
+                        "en": "Al Ahad",
+                        "ar": "الاحد"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:06 (WAT)",
+                "Sunrise": "06:08 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:48 (WAT)",
+                "Sunset": "18:46 (WAT)",
+                "Maghrib": "18:46 (WAT)",
+                "Isha": "19:48 (WAT)",
+                "Imsak": "04:56 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "18 May 2020",
+                "timestamp": "1589788861",
+                "gregorian": {
+                    "date": "18-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "18",
+                    "weekday": {
+                        "en": "Monday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "25-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "25",
+                    "weekday": {
+                        "en": "Al Athnayn",
+                        "ar": "الاثنين"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [
+                        "Lailat-ul-Qadr"
+                    ]
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:06 (WAT)",
+                "Sunrise": "06:08 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:49 (WAT)",
+                "Sunset": "18:46 (WAT)",
+                "Maghrib": "18:46 (WAT)",
+                "Isha": "19:48 (WAT)",
+                "Imsak": "04:56 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "19 May 2020",
+                "timestamp": "1589875261",
+                "gregorian": {
+                    "date": "19-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "19",
+                    "weekday": {
+                        "en": "Tuesday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "26-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "26",
+                    "weekday": {
+                        "en": "Al Thalaata",
+                        "ar": "الثلاثاء"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:05 (WAT)",
+                "Sunrise": "06:08 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:49 (WAT)",
+                "Sunset": "18:46 (WAT)",
+                "Maghrib": "18:46 (WAT)",
+                "Isha": "19:49 (WAT)",
+                "Imsak": "04:55 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "20 May 2020",
+                "timestamp": "1589961661",
+                "gregorian": {
+                    "date": "20-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "20",
+                    "weekday": {
+                        "en": "Wednesday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "27-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "27",
+                    "weekday": {
+                        "en": "Al Arba'a",
+                        "ar": "الاربعاء"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [
+                        "Lailat-ul-Qadr"
+                    ]
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:05 (WAT)",
+                "Sunrise": "06:08 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:50 (WAT)",
+                "Sunset": "18:46 (WAT)",
+                "Maghrib": "18:46 (WAT)",
+                "Isha": "19:49 (WAT)",
+                "Imsak": "04:55 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "21 May 2020",
+                "timestamp": "1590048061",
+                "gregorian": {
+                    "date": "21-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "21",
+                    "weekday": {
+                        "en": "Thursday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "28-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "28",
+                    "weekday": {
+                        "en": "Al Khamees",
+                        "ar": "الخميس"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:05 (WAT)",
+                "Sunrise": "06:08 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:50 (WAT)",
+                "Sunset": "18:47 (WAT)",
+                "Maghrib": "18:47 (WAT)",
+                "Isha": "19:49 (WAT)",
+                "Imsak": "04:55 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "22 May 2020",
+                "timestamp": "1590134461",
+                "gregorian": {
+                    "date": "22-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "22",
+                    "weekday": {
+                        "en": "Friday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "29-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "29",
+                    "weekday": {
+                        "en": "Al Juma'a",
+                        "ar": "الجمعة"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [
+                        "Lailat-ul-Qadr"
+                    ]
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:05 (WAT)",
+                "Sunrise": "06:07 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:50 (WAT)",
+                "Sunset": "18:47 (WAT)",
+                "Maghrib": "18:47 (WAT)",
+                "Isha": "19:50 (WAT)",
+                "Imsak": "04:55 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "23 May 2020",
+                "timestamp": "1590220861",
+                "gregorian": {
+                    "date": "23-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "23",
+                    "weekday": {
+                        "en": "Saturday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "30-09-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "30",
+                    "weekday": {
+                        "en": "Al Sabt",
+                        "ar": "السبت"
+                    },
+                    "month": {
+                        "number": 9,
+                        "en": "Ramaḍān",
+                        "ar": "رَمَضان"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:05 (WAT)",
+                "Sunrise": "06:07 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:51 (WAT)",
+                "Sunset": "18:47 (WAT)",
+                "Maghrib": "18:47 (WAT)",
+                "Isha": "19:50 (WAT)",
+                "Imsak": "04:55 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "24 May 2020",
+                "timestamp": "1590307261",
+                "gregorian": {
+                    "date": "24-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "24",
+                    "weekday": {
+                        "en": "Sunday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "01-10-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "01",
+                    "weekday": {
+                        "en": "Al Ahad",
+                        "ar": "الاحد"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": [
+                        "Eid-ul-Fitr"
+                    ]
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:05 (WAT)",
+                "Sunrise": "06:07 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:51 (WAT)",
+                "Sunset": "18:47 (WAT)",
+                "Maghrib": "18:47 (WAT)",
+                "Isha": "19:50 (WAT)",
+                "Imsak": "04:55 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "25 May 2020",
+                "timestamp": "1590393661",
+                "gregorian": {
+                    "date": "25-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "25",
+                    "weekday": {
+                        "en": "Monday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "02-10-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "02",
+                    "weekday": {
+                        "en": "Al Athnayn",
+                        "ar": "الاثنين"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:04 (WAT)",
+                "Sunrise": "06:07 (WAT)",
+                "Dhuhr": "12:27 (WAT)",
+                "Asr": "15:51 (WAT)",
+                "Sunset": "18:48 (WAT)",
+                "Maghrib": "18:48 (WAT)",
+                "Isha": "19:51 (WAT)",
+                "Imsak": "04:54 (WAT)",
+                "Midnight": "00:27 (WAT)"
+            },
+            "date": {
+                "readable": "26 May 2020",
+                "timestamp": "1590480061",
+                "gregorian": {
+                    "date": "26-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "26",
+                    "weekday": {
+                        "en": "Tuesday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "03-10-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "03",
+                    "weekday": {
+                        "en": "Al Thalaata",
+                        "ar": "الثلاثاء"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:04 (WAT)",
+                "Sunrise": "06:07 (WAT)",
+                "Dhuhr": "12:28 (WAT)",
+                "Asr": "15:52 (WAT)",
+                "Sunset": "18:48 (WAT)",
+                "Maghrib": "18:48 (WAT)",
+                "Isha": "19:51 (WAT)",
+                "Imsak": "04:54 (WAT)",
+                "Midnight": "00:28 (WAT)"
+            },
+            "date": {
+                "readable": "27 May 2020",
+                "timestamp": "1590566461",
+                "gregorian": {
+                    "date": "27-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "27",
+                    "weekday": {
+                        "en": "Wednesday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "04-10-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "04",
+                    "weekday": {
+                        "en": "Al Arba'a",
+                        "ar": "الاربعاء"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:04 (WAT)",
+                "Sunrise": "06:07 (WAT)",
+                "Dhuhr": "12:28 (WAT)",
+                "Asr": "15:52 (WAT)",
+                "Sunset": "18:48 (WAT)",
+                "Maghrib": "18:48 (WAT)",
+                "Isha": "19:51 (WAT)",
+                "Imsak": "04:54 (WAT)",
+                "Midnight": "00:28 (WAT)"
+            },
+            "date": {
+                "readable": "28 May 2020",
+                "timestamp": "1590652861",
+                "gregorian": {
+                    "date": "28-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "28",
+                    "weekday": {
+                        "en": "Thursday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "05-10-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "05",
+                    "weekday": {
+                        "en": "Al Khamees",
+                        "ar": "الخميس"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:04 (WAT)",
+                "Sunrise": "06:07 (WAT)",
+                "Dhuhr": "12:28 (WAT)",
+                "Asr": "15:52 (WAT)",
+                "Sunset": "18:49 (WAT)",
+                "Maghrib": "18:49 (WAT)",
+                "Isha": "19:52 (WAT)",
+                "Imsak": "04:54 (WAT)",
+                "Midnight": "00:28 (WAT)"
+            },
+            "date": {
+                "readable": "29 May 2020",
+                "timestamp": "1590739261",
+                "gregorian": {
+                    "date": "29-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "29",
+                    "weekday": {
+                        "en": "Friday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "06-10-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "06",
+                    "weekday": {
+                        "en": "Al Juma'a",
+                        "ar": "الجمعة"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:04 (WAT)",
+                "Sunrise": "06:07 (WAT)",
+                "Dhuhr": "12:28 (WAT)",
+                "Asr": "15:53 (WAT)",
+                "Sunset": "18:49 (WAT)",
+                "Maghrib": "18:49 (WAT)",
+                "Isha": "19:52 (WAT)",
+                "Imsak": "04:54 (WAT)",
+                "Midnight": "00:28 (WAT)"
+            },
+            "date": {
+                "readable": "30 May 2020",
+                "timestamp": "1590825661",
+                "gregorian": {
+                    "date": "30-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "30",
+                    "weekday": {
+                        "en": "Saturday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "07-10-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "07",
+                    "weekday": {
+                        "en": "Al Sabt",
+                        "ar": "السبت"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        },
+        {
+            "timings": {
+                "Fajr": "05:04 (WAT)",
+                "Sunrise": "06:07 (WAT)",
+                "Dhuhr": "12:28 (WAT)",
+                "Asr": "15:53 (WAT)",
+                "Sunset": "18:49 (WAT)",
+                "Maghrib": "18:49 (WAT)",
+                "Isha": "19:52 (WAT)",
+                "Imsak": "04:54 (WAT)",
+                "Midnight": "00:28 (WAT)"
+            },
+            "date": {
+                "readable": "31 May 2020",
+                "timestamp": "1590912061",
+                "gregorian": {
+                    "date": "31-05-2020",
+                    "format": "DD-MM-YYYY",
+                    "day": "31",
+                    "weekday": {
+                        "en": "Sunday"
+                    },
+                    "month": {
+                        "number": 5,
+                        "en": "May"
+                    },
+                    "year": "2020",
+                    "designation": {
+                        "abbreviated": "AD",
+                        "expanded": "Anno Domini"
+                    }
+                },
+                "hijri": {
+                    "date": "08-10-1441",
+                    "format": "DD-MM-YYYY",
+                    "day": "08",
+                    "weekday": {
+                        "en": "Al Ahad",
+                        "ar": "الاحد"
+                    },
+                    "month": {
+                        "number": 10,
+                        "en": "Shawwāl",
+                        "ar": "شَوّال"
+                    },
+                    "year": "1441",
+                    "designation": {
+                        "abbreviated": "AH",
+                        "expanded": "Anno Hegirae"
+                    },
+                    "holidays": []
+                }
+            },
+            "meta": {
+                "latitude": 10.5104642,
+                "longitude": 7.4165053,
+                "timezone": "Africa/Lagos",
+                "method": {
+                    "id": 2,
+                    "name": "Islamic Society of North America (ISNA)",
+                    "params": {
+                        "Fajr": 15,
+                        "Isha": 15
+                    }
+                },
+                "latitudeAdjustmentMethod": "ANGLE_BASED",
+                "midnightMode": "STANDARD",
+                "school": "STANDARD",
+                "offset": {
+                    "Imsak": 0,
+                    "Fajr": 0,
+                    "Sunrise": 0,
+                    "Dhuhr": 0,
+                    "Asr": 0,
+                    "Maghrib": 0,
+                    "Sunset": 0,
+                    "Isha": 0,
+                    "Midnight": 0
+                }
+            }
+        }
+    ]
+}

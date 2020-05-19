@@ -2,7 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'package:ramadankareem/components/back_button.dart';
 import 'package:ramadankareem/components/countdown_timer.dart';
+import 'package:ramadankareem/components/info_card.dart';
+import 'package:ramadankareem/models/alarm.dart';
+import 'package:ramadankareem/models/prayer_time.dart';
 import 'package:ramadankareem/utils/constants.dart';
 
 class CountdownScreen extends StatefulWidget {
@@ -11,190 +16,152 @@ class CountdownScreen extends StatefulWidget {
 }
 
 class _CountdownScreenState extends State<CountdownScreen> {
-  bool onIftarAlert = true;
+  Alarm alarm;
+  dynamic weatherData;
+  DateTime now, later, remaining;
+  Duration duration;
+  String hours, minutes, seconds, city;
+  int temperature;
+
+  void getDuration() {
+    try {
+      now = DateTime.now();
+      later = alarm.getDTime;
+      duration = later.difference(now);
+      remaining = DateTime.fromMillisecondsSinceEpoch(duration.inMilliseconds,
+          isUtc: true);
+      hours = remaining.hour.toString();
+      int m = remaining.minute;
+      minutes = m < 10 ? '0$m' : m.toString();
+      int s = remaining.second;
+      seconds = s < 10 ? '0$s' : s.toString();
+
+      print('Now: $now');
+      print('Later: $later');
+      print('Duration: $duration');
+      print('Remaining: $remaining');
+      print('Hr: $hours');
+      print('Min: $minutes');
+      print('Sec: $seconds');
+    } catch (e) {
+      print('##getDuration##: $e');
+    }
+  }
+
+  void getTemperature() {
+    try {
+      double temp = weatherData['main']['temp'];
+      temperature = temp.round()..toInt();
+      city = weatherData['name'];
+    } catch (e) {
+      print('##getTemperature##: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade300,
       body: SafeArea(
         child: Container(
-          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-          child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.all(20),
-                child: Center(
-                  child: Text(
-                    'COUNTDOWN',
-                    style: TextStyle(
-                        color: kMetalicGold,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'PoiretOne',
-                        fontSize: 28),
-                  ),
-                ),
-              ),
-              SizedBox(height: 10.0),
-              Expanded(
-                  child: CountDownTimer(
-                      countdownHrs: '3', countdownMin: '0', countdownSec: '0')),
-              SizedBox(height: 10.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          margin: EdgeInsets.symmetric(horizontal: kCardPadding),
+          child: Consumer<PrayerTime>(
+            builder: (context, prayerData, child) {
+              alarm = prayerData.nextAlarm;
+              weatherData = prayerData.weatherData;
+              getDuration();
+              getTemperature();
+
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Container(
-                    height: 150,
-                    width: 150,
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(35))),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(FontAwesomeIcons.businessTime),
-                        Text(
-                          'Isha',
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: Center(
+                        child: Text(
+                          'COUNTDOWN',
                           style: TextStyle(
-                              fontSize: 45,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Shine',
-                              color: kMetalicGold),
-                        ),
-                        Text(
-                          'in 3:56 hrs',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(
-                    height: 150,
-                    width: 150,
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(35))),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(FontAwesomeIcons.thermometerThreeQuarters),
-                        Text(
-                          '28oC',
-                          style: TextStyle(
-                              fontSize: 45,
-                              fontWeight: FontWeight.w400,
                               color: kMetalicGold,
-                              fontFamily: 'Les'),
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'PoiretOne',
+                              fontSize: 20),
                         ),
-                        Text(
-                          'Today',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
-                ],
-              ),
-              SizedBox(height: 10.0),
-              Container(
-                height: 70,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(30),
+                  Expanded(
+                    flex: 7,
+                    child: Container(
+                      margin: EdgeInsets.all(10.0),
+                      child: CountDownTimer(
+                        countdownHrs: hours != null ? hours : '0',
+                        countdownMin: minutes != null ? minutes : '0',
+                        countdownSec: seconds != null ? seconds : '0',
+                      ),
                     ),
                   ),
-                  child: Container(
-                    margin: EdgeInsets.only(left: 25, right: 10),
+                  Expanded(
+                    flex: 4,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
-                          'Iftar Alert',
-                          style: TextStyle(
-                              color: kAmericanGold,
-                              fontFamily: 'ShadedLarch',
-                              fontSize: 35,
-                              fontWeight: FontWeight.bold),
+                        InfoCard(
+                          icon: FontAwesomeIcons.clock,
+                          title: alarm != null ? alarm.name : '--',
+                          subtitle: alarm != null
+                              ? 'in $hours:$minutes hrs'
+                              : 'in --:-- hrs',
                         ),
-                        CupertinoSwitch(
-                            activeColor: kMetalicGold,
-                            value: onIftarAlert,
-                            onChanged: (bool changeAlert) {
-                              setState(() {
-                                onIftarAlert = !onIftarAlert;
-                              });
-                            }),
+                        SizedBox(width: 10.0),
+                        InfoCard(
+                          icon: FontAwesomeIcons.thermometerThreeQuarters,
+                          title:
+                              weatherData != null ? '$temperature°c' : '--°c',
+                          subtitle:
+                              weatherData != null ? 'Today in $city' : 'Today',
+                        ),
                       ],
                     ),
                   ),
-                ),
-              ),
-              SizedBox(height: 10.0),
-              BackButton()
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class BackButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.pop(context),
-      child: Container(
-        height: 150,
-        width: 150,
-        decoration: BoxDecoration(
-          color: kMetalicGold,
-          borderRadius: BorderRadius.all(
-            Radius.circular(80),
-          ),
-        ),
-        child: Center(
-          child: Stack(
-            children: [
-              Positioned(
-                bottom: 70,
-                left: 35,
-                top: 45,
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: Colors.white,
-                  size: 55,
-                ),
-              ),
-              Positioned(
-                bottom: 70,
-                left: 15,
-                top: 45,
-                child: Icon(
-                  Icons.arrow_back_ios,
-                  color: kGoldenPoppy.withOpacity(0.5),
-                  size: 55,
-                ),
-              ),
-              Positioned(
-                bottom: 60,
-                left: 75,
-                top: 60,
-                child: Text(
-                  'Back',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 24,
-                      fontFamily: 'PoiretOne',
-                      fontWeight: FontWeight.bold),
-                ),
-              )
-            ],
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                      padding: EdgeInsets.all(20.0),
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(30))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Iftar Alert',
+                            style: TextStyle(
+                                color: kAmericanGold,
+                                fontSize: 25,
+                                fontFamily: 'Raleway',
+                                fontWeight: FontWeight.bold),
+                          ),
+                          CupertinoSwitch(
+                              activeColor: kMetalicGold,
+                              value: prayerData.iftarAlarmOnOff,
+                              onChanged: (bool onOff) {
+                                setState(() {
+                                  prayerData.iftarAlarmOnOff = onOff;
+                                });
+                                prayerData.notify();
+                              }),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(flex: 2, child: Back())
+                ],
+              );
+            },
           ),
         ),
       ),

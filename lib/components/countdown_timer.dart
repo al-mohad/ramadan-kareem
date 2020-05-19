@@ -2,6 +2,9 @@ import 'dart:math' as math;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:ramadankareem/models/alarm.dart';
+import 'package:ramadankareem/models/prayer_time.dart';
 import 'package:ramadankareem/utils/constants.dart';
 
 class CountDownTimer extends StatefulWidget {
@@ -20,7 +23,7 @@ class _CountDownTimerState extends State<CountDownTimer>
     return '${(duration.inHours % 12).toString().padLeft(2, '0')}:${(duration.inMinutes % 60).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
   }
 
-  start_timer() {
+  startTimer() {
     if (controller.isAnimating)
       controller.stop();
     else {
@@ -39,11 +42,18 @@ class _CountDownTimerState extends State<CountDownTimer>
           minutes: int.parse(widget.countdownMin),
           seconds: int.parse(widget.countdownSec)),
     );
-    start_timer();
+    startTimer();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    Alarm alarm = Provider.of<PrayerTime>(context).nextAlarm;
     return Scaffold(
       backgroundColor: Colors.white10,
       body: AnimatedBuilder(
@@ -75,8 +85,8 @@ class _CountDownTimerState extends State<CountDownTimer>
                                   child: Stack(
                                     children: [
                                       Positioned(
-                                        top: 60,
-                                        left: 30,
+                                        top: 80,
+                                        left: 50,
                                         child: Center(
                                           child: Text(
                                             timerString,
@@ -88,15 +98,20 @@ class _CountDownTimerState extends State<CountDownTimer>
                                         ),
                                       ),
                                       Positioned(
-                                        bottom: 55,
-                                        left: 25,
+                                        bottom: 90,
+                                        left: 30,
                                         child: Center(
                                           child: Text(
-                                            "Remaining for Iftar",
+                                            "Remaining for ${alarm != null ? alarm.name : ''}",
+                                            softWrap: true,
+                                            textAlign: TextAlign.center,
+                                            textWidthBasis:
+                                                TextWidthBasis.parent,
                                             style: TextStyle(
-                                                fontSize: 40.0,
-                                                color: kMetalicGold,
-                                                fontFamily: 'Snowboarding'),
+                                              fontSize: 40.0,
+                                              fontFamily: 'Snowboarding',
+                                              color: kMetalicGold,
+                                            ),
                                           ),
                                         ),
                                       ),

@@ -70,6 +70,15 @@ flutter:
      - family: PoiretOne
        fonts:
          - asset: fonts/PoiretOne-Regular.ttf
+     - family: Roboto
+       fonts:
+         - asset: fonts/Roboto-Regular.ttf
+     - family: Raleway
+       fonts:
+         - asset: fonts/Raleway-Regular.ttf
+     - family: CircularStd
+       fonts:
+         - asset: fonts/CircularStd-Black.ttf
      - family: Billabong
        fonts:
          - asset: fonts/Billabong.ttf
