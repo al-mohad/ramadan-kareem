@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:ramadankareem/services/location.dart';
 import 'package:ramadankareem/services/networking.dart';
+import 'package:ramadankareem/utils/constants.dart';
 
 const apiKey = '5bdeeebf079620d56c4fddedf1b809f8';
 const openWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
@@ -28,8 +31,10 @@ class WeatherModel {
 
     var weatherData = await networkHelper.getData();
 
+    if (weatherData == null) {
+      weatherData = jsonDecode(dummyWeather.body);
+    }
     print('getLocationWeather exitted');
-
     return weatherData;
   }
 }

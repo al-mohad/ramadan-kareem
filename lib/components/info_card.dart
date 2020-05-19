@@ -14,8 +14,8 @@ class InfoCard extends StatelessWidget {
     return Expanded(
       child: Container(
         margin:
-            EdgeInsets.only(top: 10.0, right: 10.0, left: 10.0, bottom: 20.0),
-        padding: EdgeInsets.all(20.0),
+            EdgeInsets.only(top: 10.0, right: 10.0, left: 10.0, bottom: 30.0),
+        padding: EdgeInsets.only(top: 20.0, left: 20.0, right: 5),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(30))),
@@ -31,16 +31,21 @@ class InfoCard extends StatelessWidget {
             Text(
               title,
               style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 25,
                   color: kMetalicGold,
+                  fontFamily: 'Raleway',
                   fontWeight: FontWeight.w500),
             ),
-            Text(
-              subtitle,
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 15,
-                fontWeight: FontWeight.bold,
+            SizedBox(height: 5.0),
+            Expanded(
+              child: Text(
+                subtitle,
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 15,
+                  fontFamily: 'Raleway',
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],

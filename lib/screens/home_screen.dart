@@ -65,11 +65,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Text(
                               prayerData.alarms[3].getSTime != null
                                   ? prayerData.alarms[3].getSTime
-                                  : "18:28",
+                                  : "--:--",
                               style: TextStyle(
                                 letterSpacing: -3,
                                 fontSize: 40,
                                 color: kOldGold,
+                                fontFamily: 'Raleway',
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -95,11 +96,12 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Text(
                               prayerData.sahur != null
                                   ? prayerData.sahur
-                                  : "4:10",
+                                  : "--:--",
                               style: TextStyle(
                                 letterSpacing: -3,
                                 fontSize: 40,
                                 color: kOldGold,
+                                fontFamily: 'Raleway',
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -143,51 +145,60 @@ class CountdownButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        GestureDetector(
-          onTap: () => prayerTime.getPrayerData(),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(
-              Icons.refresh,
-              color: kGoldenPoppy.withOpacity(0.5),
-              size: 55,
+        Expanded(
+          child: Container(
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: FlatButton.icon(
+                onPressed: () => prayerTime.getStarted(),
+                icon: Icon(
+                  Icons.refresh,
+                  color: kMetalicGold,
+                  size: 20,
+                ),
+                label: Text(
+                  'Refresh',
+                  style: TextStyle(
+                      color: kMetalicGold,
+                      fontFamily: 'Raleway',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+              ),
             ),
           ),
         ),
-        GestureDetector(
-          onTap: () => Navigator.push(
-            context,
-            CupertinoPageRoute(
-              builder: (_) => CountdownScreen(),
-            ),
-          ),
-          child: Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Icon(
-                  Icons.timer,
-                  color: kGoldenPoppy.withOpacity(0.5),
-                  size: 55,
+        Expanded(
+          child: Container(
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: FlatButton.icon(
+                onPressed: () => Navigator.push(
+                  context,
+                  CupertinoPageRoute(
+                    builder: (_) => CountdownScreen(),
+                  ),
                 ),
-                Icon(
-                  Icons.keyboard_arrow_right,
-                  color: kGoldenPoppy.withOpacity(0.5),
-                  size: 55,
+                icon: Icon(
+                  Icons.arrow_forward_ios,
+                  color: kMetalicGold,
+                  size: 14,
                 ),
-                Icon(
-                  Icons.keyboard_arrow_right,
-                  color: kGoldenPoppy.withOpacity(0.5),
-                  size: 55,
+                label: Text(
+                  'COUNTDOWN',
+                  style: TextStyle(
+                      color: kMetalicGold,
+                      fontFamily: 'Raleway',
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold),
                 ),
-              ],
+              ),
             ),
           ),
         ),

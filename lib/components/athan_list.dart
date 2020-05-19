@@ -52,7 +52,8 @@ class AthanBubble extends StatelessWidget {
             style: TextStyle(
               fontSize: 18,
               color: kMetalicGold,
-              fontWeight: FontWeight.w500,
+              fontFamily: 'Raleway',
+              fontWeight: FontWeight.w600,
             ),
           ),
           isNext

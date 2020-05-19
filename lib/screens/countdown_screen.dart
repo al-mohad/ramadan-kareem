@@ -1,5 +1,3 @@
-import 'dart:math' as math;
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -20,34 +18,44 @@ class CountdownScreen extends StatefulWidget {
 class _CountdownScreenState extends State<CountdownScreen> {
   Alarm alarm;
   dynamic weatherData;
-  DateTime now, remaining;
+  DateTime now, later, remaining;
   Duration duration;
-  String hour, min;
+  String hours, minutes, seconds, city;
   int temperature;
 
   void getDuration() {
     try {
-      duration = alarm.getDTime.difference(now);
+      now = DateTime.now();
+      later = alarm.getDTime;
+      duration = later.difference(now);
       remaining = DateTime.fromMillisecondsSinceEpoch(duration.inMilliseconds,
           isUtc: true);
-      hour = remaining.hour.toString();
-      String m = remaining.minute.toString();
-      min = m.length < 2 ? '0$m' : m;
+      hours = remaining.hour.toString();
+      int m = remaining.minute;
+      minutes = m < 10 ? '0$m' : m.toString();
+      int s = remaining.second;
+      seconds = s < 10 ? '0$s' : s.toString();
+
+      print('Now: $now');
+      print('Later: $later');
+      print('Duration: $duration');
+      print('Remaining: $remaining');
+      print('Hr: $hours');
+      print('Min: $minutes');
+      print('Sec: $seconds');
     } catch (e) {
       print('##getDuration##: $e');
     }
-
-    print('Alarm: ${alarm.getDTime}');
-    print('Duration: $duration');
-    print('Remaining: $remaining');
-    print('Hr: ${remaining.hour}');
-    print('Min: ${remaining.minute}');
-    print('Sec: ${remaining.second}');
   }
 
   void getTemperature() {
-    double temp = weatherData['main']['temp'];
-    temperature = temp.toInt();
+    try {
+      double temp = weatherData['main']['temp'];
+      temperature = temp.round()..toInt();
+      city = weatherData['name'];
+    } catch (e) {
+      print('##getTemperature##: $e');
+    }
   }
 
   @override
@@ -61,11 +69,11 @@ class _CountdownScreenState extends State<CountdownScreen> {
             builder: (context, prayerData, child) {
               alarm = prayerData.nextAlarm;
               weatherData = prayerData.weatherData;
-              now = DateTime.now();
               getDuration();
               getTemperature();
 
               return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(
                     flex: 1,
@@ -87,11 +95,9 @@ class _CountdownScreenState extends State<CountdownScreen> {
                     child: Container(
                       margin: EdgeInsets.all(10.0),
                       child: CountDownTimer(
-                        countdownHrs: alarm != null ? '${remaining.hour}' : '0',
-                        countdownMin:
-                            alarm != null ? '${remaining.minute}' : '0',
-                        countdownSec:
-                            alarm != null ? '${remaining.second}' : '0',
+                        countdownHrs: hours != null ? hours : '0',
+                        countdownMin: minutes != null ? minutes : '0',
+                        countdownSec: seconds != null ? seconds : '0',
                       ),
                     ),
                   ),
@@ -104,7 +110,7 @@ class _CountdownScreenState extends State<CountdownScreen> {
                           icon: FontAwesomeIcons.clock,
                           title: alarm != null ? alarm.name : '--',
                           subtitle: alarm != null
-                              ? 'in $hour:$min hrs'
+                              ? 'in $hours:$minutes hrs'
                               : 'in --:-- hrs',
                         ),
                         SizedBox(width: 10.0),
@@ -112,7 +118,8 @@ class _CountdownScreenState extends State<CountdownScreen> {
                           icon: FontAwesomeIcons.thermometerThreeQuarters,
                           title:
                               weatherData != null ? '$temperature°c' : '--°c',
-                          subtitle: 'Today',
+                          subtitle:
+                              weatherData != null ? 'Today in $city' : 'Today',
                         ),
                       ],
                     ),
@@ -134,7 +141,8 @@ class _CountdownScreenState extends State<CountdownScreen> {
                             'Iftar Alert',
                             style: TextStyle(
                                 color: kAmericanGold,
-                                fontSize: 20,
+                                fontSize: 25,
+                                fontFamily: 'Raleway',
                                 fontWeight: FontWeight.bold),
                           ),
                           CupertinoSwitch(

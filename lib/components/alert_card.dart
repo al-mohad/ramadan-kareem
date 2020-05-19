@@ -59,19 +59,22 @@ class AlertCard extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 40,
                             color: kOldGold,
-                            fontWeight: FontWeight.w500),
+                            fontFamily: 'Montserrat',
+                            fontWeight: FontWeight.w800),
                       )
                     : SizedBox(),
               ),
               Container(child: alarmBody),
               Container(
-                margin: EdgeInsets.all(kCardPadding),
+                margin:
+                    EdgeInsets.only(left: kCardPadding, bottom: kCardPadding),
                 child: Text(
                   cardTitle,
                   style: TextStyle(
-                      fontSize: 15.0,
-                      color: kOldGold,
-                      fontWeight: FontWeight.w500),
+                      fontSize: 18.0,
+                      color: kOldGold.withOpacity(0.8),
+                      fontFamily: 'PoiretOne',
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ],

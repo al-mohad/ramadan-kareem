@@ -5,35 +5,29 @@ import 'package:ramadankareem/utils/constants.dart';
 class Back extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.pop(context),
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 10.0),
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.all(Radius.circular(30))),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.keyboard_arrow_left,
-              color: kGoldenPoppy.withOpacity(0.5),
-              size: 55,
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(30),
+          ),
+        ),
+        child: FlatButton.icon(
+            onPressed: () => Navigator.pop(context),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: kMetalicGold,
+              size: 35,
             ),
-            Icon(
-              Icons.keyboard_arrow_left,
-              color: kGoldenPoppy.withOpacity(0.5),
-              size: 55,
-            ),
-            Text(
+            label: Text(
               'BACK',
               style: TextStyle(
-                  fontFamily: 'PoiretOne',
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18),
-            ),
-          ],
-        ),
+                  color: kMetalicGold,
+                  fontFamily: 'Raleway'),
+            )),
       ),
     );
   }

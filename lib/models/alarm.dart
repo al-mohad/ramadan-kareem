@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 class Alarm {
   String name;
   bool isNext;
-  String _stringTime = "18:28";
+  String _stringTime;
   DateTime _dateTime;
 
   Alarm({

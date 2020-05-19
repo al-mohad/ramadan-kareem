@@ -102,13 +102,14 @@ class _CountDownTimerState extends State<CountDownTimer>
                                         left: 30,
                                         child: Center(
                                           child: Text(
-                                            "Mins Remaining for ${alarm.name}",
+                                            "Remaining for ${alarm != null ? alarm.name : ''}",
                                             softWrap: true,
                                             textAlign: TextAlign.center,
                                             textWidthBasis:
                                                 TextWidthBasis.parent,
                                             style: TextStyle(
-                                              fontSize: 20.0,
+                                              fontSize: 40.0,
+                                              fontFamily: 'Snowboarding',
                                               color: kMetalicGold,
                                             ),
                                           ),

@@ -1,9 +1,6 @@
 import 'dart:collection';
-import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:http/http.dart' as http;
 import 'package:ramadankareem/models/alarm.dart';
 import 'package:ramadankareem/services/location.dart';
 import 'package:ramadankareem/services/networking.dart';
@@ -35,7 +32,7 @@ class PrayerTime extends ChangeNotifier {
     Alarm(name: 'Fajr'),
     Alarm(name: 'Dhuhr'),
     Alarm(name: 'Asr'),
-    Alarm(name: 'Magrib'),
+    Alarm(name: 'Maghrib'),
     Alarm(name: 'Isha')
   ];
 
@@ -112,7 +109,7 @@ class PrayerTime extends ChangeNotifier {
     print('url: $url');
 
     timeNetworkHelper = NetworkHelper(url: url);
-    dynamic timeData = await timeNetworkHelper.getData();
+    var timeData = await timeNetworkHelper.getData();
 
     if (timeData != null) {
       sahur = fajrToSahur(timeData['data'][day - 1]['timings']['Fajr']);
