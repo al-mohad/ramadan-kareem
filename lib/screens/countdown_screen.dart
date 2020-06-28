@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:ramadankareem/components/back_button.dart';
 import 'package:ramadankareem/components/countdown_timer.dart';
+import 'package:ramadankareem/components/countdown_timer2.dart';
 import 'package:ramadankareem/components/info_card.dart';
 import 'package:ramadankareem/models/alarm.dart';
 import 'package:ramadankareem/models/prayer_time.dart';
@@ -61,7 +62,7 @@ class _CountdownScreenState extends State<CountdownScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: Color(0xFFf6f7f9),
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: kCardPadding),
@@ -93,8 +94,7 @@ class _CountdownScreenState extends State<CountdownScreen> {
                   Expanded(
                     flex: 7,
                     child: Container(
-                      margin: EdgeInsets.all(10.0),
-                      child: CountDownTimer(
+                      child: CountDownTimer2(
                         countdownHrs: hours != null ? hours : '0',
                         countdownMin: minutes != null ? minutes : '0',
                         countdownSec: seconds != null ? seconds : '0',

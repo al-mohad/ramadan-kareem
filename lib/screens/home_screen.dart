@@ -28,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade300,
+      backgroundColor: Color(0xFFf6f7f9),
       body: Container(
         margin: EdgeInsets.all(kCardPadding),
         child: Column(

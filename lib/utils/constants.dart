@@ -25,9 +25,11 @@ BoxDecoration kNextPrayerTileDecoration = BoxDecoration(
 
 const kCardShadow = [
   BoxShadow(
-    color: Color(0xFFE0E0E0),
-    blurRadius: 30.0,
-  )
+    color: Color(0xFFE1E1E1),
+    offset: Offset(15, 20),
+    blurRadius: 40.0,
+    spreadRadius: 40.0,
+  ),
 ];
 
 const kCardShape = BoxDecoration(
