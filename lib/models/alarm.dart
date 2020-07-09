@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Alarm {
   String name;
@@ -21,7 +21,7 @@ class Alarm {
     _dateTime = value;
   }
 
-  void toogleNextAlarm(bool onOff) {
+  void toggleNextAlarm(bool onOff) {
     isNext = onOff;
   }
 }

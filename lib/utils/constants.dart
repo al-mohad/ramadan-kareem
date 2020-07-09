@@ -50,3 +50,6 @@ http.Response dummyTime = http.Response(
   '',
   200,
 );
+
+// Sahur constant
+int sahurConstant = 50;

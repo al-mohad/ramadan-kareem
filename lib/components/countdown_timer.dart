@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ramadankareem/models/alarm.dart';
-import 'package:ramadankareem/models/prayer_time.dart';
+import 'package:ramadankareem/notifiers/alarm_notifier.dart';
 import 'package:ramadankareem/utils/constants.dart';
 
 class CountDownTimer extends StatefulWidget {
@@ -53,7 +53,7 @@ class _CountDownTimerState extends State<CountDownTimer>
 
   @override
   Widget build(BuildContext context) {
-    Alarm alarm = Provider.of<PrayerTime>(context).nextAlarm;
+    Alarm alarm = Provider.of<AlarmNotifier>(context).nextAlarm;
     return Scaffold(
       backgroundColor: Colors.white10,
       body: AnimatedBuilder(

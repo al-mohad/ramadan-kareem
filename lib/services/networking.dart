@@ -13,8 +13,8 @@ class NetworkHelper {
 
       if (response.statusCode == 200) {
         print('getData exited in NetworkHelper');
-        print('headers: ${response.headers}');
-        print('bodyBytes: ${response.bodyBytes}');
+//        print('headers: ${response.headers}');
+//        print('bodyBytes: ${response.bodyBytes}');
         return jsonDecode(response.body);
       } else {
         print(response.statusCode);

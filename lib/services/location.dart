@@ -1,7 +1,7 @@
 import 'package:geolocator/geolocator.dart';
 
 class Location {
-  // singleton
+  // singleton_start
   static final Location _location = Location._internal();
 
   factory Location() {
@@ -12,6 +12,7 @@ class Location {
   Location._internal(); // private constructor
 
   static int instance = 0;
+  // singleton_end
 
   double latitude;
   double longitude;
@@ -23,7 +24,7 @@ class Location {
           .getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
       latitude = _position.latitude;
       longitude = _position.longitude;
-      print('getCurrentLocation exitted');
+      print('getCurrentLocation exited');
     } catch (e) {
       throw 'Problem with the location request';
     }

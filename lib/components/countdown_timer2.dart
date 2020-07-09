@@ -1,9 +1,10 @@
+import 'dart:math' as math;
+
+import 'package:audioplayers/audio_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ramadankareem/models/alarm.dart';
-import 'dart:math' as math;
-
-import 'package:ramadankareem/models/prayer_time.dart';
+import 'package:ramadankareem/notifiers/alarm_notifier.dart';
 import 'package:ramadankareem/utils/constants.dart';
 
 class CountDownTimer2 extends StatefulWidget {
@@ -19,7 +20,7 @@ class _CountDownTimer2State extends State<CountDownTimer2>
 
   String get timerString {
     Duration duration = controller.duration * controller.value;
-    return '${(duration.inHours % 12).toString().padLeft(2, '0')}:${(duration.inMinutes % 60).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}';
+    return '${(duration.inHours % 12).toString().padLeft(2, '0')}:${(duration.inMinutes % 60).toString().padLeft(2, '0')}:${(duration.inSeconds % 60).toString().padLeft(2, '0')}:${(duration.inMilliseconds % 1000).toString().padLeft(2, '0')}';
   }
 
   startTimer() {
@@ -56,7 +57,7 @@ class _CountDownTimer2State extends State<CountDownTimer2>
 
   @override
   Widget build(BuildContext context) {
-    Alarm alarm = Provider.of<PrayerTime>(context).nextAlarm;
+    Alarm alarm = Provider.of<AlarmNotifier>(context).nextAlarm;
     return Container(
       alignment: Alignment.center,
       child: AnimatedBuilder(
@@ -102,18 +103,18 @@ class _CountDownTimer2State extends State<CountDownTimer2>
                       Icon(
                         Icons.wb_sunny,
                         size: 30,
-                        color: kGoldenYellow,
+                        color: kGoldenPoppy,
                       ),
                       SizedBox(height: 10.0),
                       Text(
                         timerString,
                         style: TextStyle(
                             color: kMetalicGold,
-                            fontSize: 43.0,
+                            fontSize: 25.0,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        'Mins Remaining',
+                        'mins remaining',
                         style: TextStyle(
                             letterSpacing: 0.5,
                             fontSize: 15.0,
@@ -133,7 +134,7 @@ class _CountDownTimer2State extends State<CountDownTimer2>
                                 text: '${alarm != null ? alarm.name : ''}',
                                 style: TextStyle(
                                     letterSpacing: 0.5,
-                                    fontSize: 15.0,
+                                    fontSize: 18.0,
                                     fontWeight: FontWeight.bold,
                                     color: kMetalicGold),
                               ),
@@ -152,6 +153,11 @@ class _CountDownTimer2State extends State<CountDownTimer2>
 }
 
 class ClockPainter extends CustomPainter {
+  playSound() {
+    final player = AudioCache();
+    player.play('sounds/bell.mp3');
+  }
+
   ClockPainter({
     this.animController,
   }) : super(repaint: animController);
@@ -199,8 +205,8 @@ class ClockPainter extends CustomPainter {
         var xL2 = centerX + longDashRadiusEnd * math.cos(i * math.pi / 180);
         var yL2 = centerX + longDashRadiusEnd * math.sin(i * math.pi / 180);
 
-        canvas.drawLine(
-            Offset(xL1, yL1), Offset(xL2, yL2), dashBrush..color = kGolden);
+        canvas.drawLine(Offset(xL1, yL1), Offset(xL2, yL2),
+            dashBrush..color = kMetalicGold);
       } else {
         var xS1 = centerX + shortDashRadiusStart * math.cos(i * math.pi / 180);
         var yS1 = centerX + shortDashRadiusStart * math.sin(i * math.pi / 180);
@@ -208,13 +214,14 @@ class ClockPainter extends CustomPainter {
         var xS2 = centerX + shortDashRadiusEnd * math.cos(i * math.pi / 180);
         var yS2 = centerX + shortDashRadiusEnd * math.sin(i * math.pi / 180);
 
-        canvas.drawLine(Offset(xS1, yS1), Offset(xS2, yS2),
-            dashBrush..color = kAmericanGold);
+        canvas.drawLine(
+            Offset(xS1, yS1), Offset(xS2, yS2), dashBrush..color = kGolden);
       }
     }
 
     if (progress == initial) {
       print('done');
+      playSound();
     }
   }
 

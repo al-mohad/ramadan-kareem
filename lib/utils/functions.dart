@@ -1,3 +1,5 @@
+import 'package:ramadankareem/utils/constants.dart';
+
 apiToDateTime(String time, int year, int month, int day) {
   // Change a string time & date to a DateTime object
   // e.g 21:38 17-5-2020 to DD-MM-YYYY-HH:MM:SS
@@ -27,6 +29,7 @@ apiToTime(String time) {
   newTime += ':';
   newTime += minute < 10 ? '0$minute' : minute.toString();
 
+  print('apiToTime: $newTime');
   return newTime;
 }
 
@@ -36,7 +39,8 @@ fajrToSahur(String fajr) {
   int hrty = int.parse(fajr.substring(0, indexOfColon));
   int minty = int.parse(fajr.substring(indexOfColon + 1, indexOfColon + 3));
 
-  minty -= 50;
+  minty -= sahurConstant;
+
   if (minty.isNegative) {
     hrty = hrty == 0 ? 24 - 1 : hrty - 1;
     minty += 60;
@@ -47,6 +51,6 @@ fajrToSahur(String fajr) {
   n += minty < 10 ? '0$minty' : minty.toString();
   // n += hrty < 12 ? ' am' : ' pm';
 
-  print('Sahur: $n');
+  print('fajrToSahur: $n');
   return n;
 }

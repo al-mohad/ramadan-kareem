@@ -160,7 +160,7 @@ class PrayerTime extends ChangeNotifier {
   }
 
   void updateAlarm(Alarm alarm, bool onOff) {
-    alarm.toogleNextAlarm(onOff);
+    alarm.toggleNextAlarm(onOff);
     notifyListeners();
   }
 

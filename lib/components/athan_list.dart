@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ramadankareem/models/alarm.dart';
-import 'package:ramadankareem/models/prayer_time.dart';
+import 'package:ramadankareem/notifiers/alarm_notifier.dart';
 import 'package:ramadankareem/utils/constants.dart';
 
 class AthanList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final alarms = Provider.of<PrayerTime>(context).alarms;
+    final alarms = Provider.of<AlarmNotifier>(context).alarms;
 
     // A List of AthanBubble widgets
     List<AthanBubble> athanBubbles = [];

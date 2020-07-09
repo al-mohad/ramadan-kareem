@@ -4,11 +4,11 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:ramadankareem/components/back_button.dart';
-import 'package:ramadankareem/components/countdown_timer.dart';
 import 'package:ramadankareem/components/countdown_timer2.dart';
 import 'package:ramadankareem/components/info_card.dart';
 import 'package:ramadankareem/models/alarm.dart';
-import 'package:ramadankareem/models/prayer_time.dart';
+import 'package:ramadankareem/notifiers/alarm_notifier.dart';
+import 'package:ramadankareem/services/weather.dart';
 import 'package:ramadankareem/utils/constants.dart';
 
 class CountdownScreen extends StatefulWidget {
@@ -18,6 +18,7 @@ class CountdownScreen extends StatefulWidget {
 
 class _CountdownScreenState extends State<CountdownScreen> {
   Alarm alarm;
+  WeatherModel weatherModel;
   dynamic weatherData;
   DateTime now, later, remaining;
   Duration duration;
@@ -66,10 +67,11 @@ class _CountdownScreenState extends State<CountdownScreen> {
       body: SafeArea(
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: kCardPadding),
-          child: Consumer<PrayerTime>(
-            builder: (context, prayerData, child) {
-              alarm = prayerData.nextAlarm;
-              weatherData = prayerData.weatherData;
+          child: Consumer<AlarmNotifier>(
+            builder: (context, notifier, child) {
+              alarm = notifier.nextAlarm;
+              weatherModel = WeatherModel();
+              weatherData = weatherModel.data;
               getDuration();
               getTemperature();
 
@@ -147,12 +149,12 @@ class _CountdownScreenState extends State<CountdownScreen> {
                           ),
                           CupertinoSwitch(
                               activeColor: kMetalicGold,
-                              value: prayerData.iftarAlarmOnOff,
+                              value: notifier.alarms[3].isNext,
                               onChanged: (bool onOff) {
                                 setState(() {
-                                  prayerData.iftarAlarmOnOff = onOff;
+                                  notifier.alarms[3].toggleNextAlarm(onOff);
                                 });
-                                prayerData.notify();
+                                notifier.notify();
                               }),
                         ],
                       ),

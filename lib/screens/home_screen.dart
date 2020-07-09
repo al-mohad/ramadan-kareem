@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:ramadankareem/api/alarm_api.dart';
 import 'package:ramadankareem/components/alert_card.dart';
 import 'package:ramadankareem/components/athan_list.dart';
 import 'package:ramadankareem/components/header.dart';
-import 'package:ramadankareem/models/prayer_time.dart';
+import 'package:ramadankareem/notifiers/alarm_notifier.dart';
 import 'package:ramadankareem/screens/countdown_screen.dart';
+import 'package:ramadankareem/services/location.dart';
+import 'package:ramadankareem/services/weather.dart';
 import 'package:ramadankareem/utils/constants.dart';
 import 'package:weather_icons/weather_icons.dart';
-
-PrayerTime prayerTime = PrayerTime();
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -22,7 +23,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    prayerTime.getStarted();
+    start();
+  }
+
+  void start() async {
+    AlarmNotifier alarmNotifier =
+        Provider.of<AlarmNotifier>(context, listen: false);
+    await Location().getCurrentLocation();
+    await WeatherModel().getLocationWeather();
+    getCalenderDataByCity(alarmNotifier);
   }
 
   @override
@@ -36,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Expanded(flex: 2, child: GetHeader()),
             Expanded(flex: 4, child: getBody()),
-            Expanded(flex: 1, child: CountdownButton()),
+            Expanded(flex: 1, child: getFooter()),
           ],
         ),
       ),
@@ -45,8 +54,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   getBody() => Container(
         margin: EdgeInsets.symmetric(horizontal: 5.0),
-        child: Consumer<PrayerTime>(
-          builder: (context, prayerData, child) {
+        child: Consumer<AlarmNotifier>(
+          builder: (context, notifier, child) {
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -58,13 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: AlertCard(
                           cardTitle: "Iftar Alert",
                           alertIcon: WeatherIcons.sunrise,
-                          alarmOnOff: prayerData.iftarAlarmOnOff,
+                          alarmOnOff: notifier.iftar.isNext,
                           alarmTitle: null,
                           alarmBody: Container(
                             padding: EdgeInsets.only(left: kCardPadding),
                             child: Text(
-                              prayerData.alarms[3].getSTime != null
-                                  ? prayerData.alarms[3].getSTime
+                              notifier.iftar.getSTime != null
+                                  ? notifier.iftar.getSTime
                                   : "--:--",
                               style: TextStyle(
                                 letterSpacing: -3,
@@ -77,11 +86,10 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           alertCallback: (bool onOff) {
                             setState(() {
-                              prayerData.iftarAlarmOnOff = onOff;
+                              notifier.iftar.toggleNextAlarm(onOff);
                             });
-                            prayerData.notify();
-                            print(
-                                'Magrib Time: ${prayerData.alarms[3].getDTime}');
+                            notifier.notify();
+                            print('Iftar Time: ${notifier.iftar.getDTime}');
                           },
                         ),
                       ),
@@ -89,13 +97,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: AlertCard(
                           cardTitle: "Sahur Alert",
                           alertIcon: FontAwesomeIcons.solidMoon,
-                          alarmOnOff: prayerData.sahurAlarmOnOff,
+                          alarmOnOff: notifier.sahur.isNext,
                           alarmTitle: null,
                           alarmBody: Container(
                             padding: EdgeInsets.only(left: kCardPadding),
                             child: Text(
-                              prayerData.sahur != null
-                                  ? prayerData.sahur
+                              notifier.sahur.getSTime != null
+                                  ? notifier.sahur.getSTime
                                   : "--:--",
                               style: TextStyle(
                                 letterSpacing: -3,
@@ -108,10 +116,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           alertCallback: (bool onOff) {
                             setState(() {
-                              prayerData.sahurAlarmOnOff = onOff;
+                              notifier.sahur.toggleNextAlarm(onOff);
                             });
-                            print(
-                                'Fajr Time: ${prayerData.alarms[0].getDTime}');
+                            print('Sahur Time: ${notifier.sahur.getDTime}');
                           },
                         ),
                       ),
@@ -123,14 +130,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: AlertCard(
                     cardTitle: 'Prayer Alert',
                     alertIcon: FontAwesomeIcons.mosque,
-                    alarmOnOff: prayerData.prayerAlarmOnOff,
+                    alarmOnOff: notifier.prayerAlarmOnOff,
                     alarmTitle: 'Azan',
                     alarmBody: AthanList(),
                     alertCallback: (bool onOff) {
                       setState(() {
-                        prayerData.prayerAlarmOnOff = onOff;
+                        notifier.prayerAlarmOnOff = onOff;
                       });
-                      print('Prayer Alarm: ${prayerData.prayerAlarmOnOff}');
+                      print('Prayer Alarm: ${notifier.prayerAlarmOnOff}');
                     },
                   ),
                 ),
@@ -139,70 +146,65 @@ class _HomeScreenState extends State<HomeScreen> {
           },
         ),
       );
-}
 
-class CountdownButton extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Expanded(
-          child: Container(
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: FlatButton.icon(
-                onPressed: () => prayerTime.getStarted(),
-                icon: Icon(
-                  Icons.refresh,
-                  color: kMetalicGold,
-                  size: 20,
+  getFooter() => Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Container(
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                label: Text(
-                  'Refresh',
-                  style: TextStyle(
-                      color: kMetalicGold,
-                      fontFamily: 'Raleway',
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ),
-        ),
-        Expanded(
-          child: Container(
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: FlatButton.icon(
-                onPressed: () => Navigator.push(
-                  context,
-                  CupertinoPageRoute(
-                    builder: (_) => CountdownScreen(),
+                child: FlatButton.icon(
+                  onPressed: () => this.start(),
+                  icon: Icon(
+                    Icons.refresh,
+                    color: kMetalicGold,
+                    size: 20,
+                  ),
+                  label: Text(
+                    'Refresh',
+                    style: TextStyle(
+                        color: kMetalicGold,
+                        fontFamily: 'Raleway',
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
-                icon: Icon(
-                  Icons.arrow_forward_ios,
-                  color: kMetalicGold,
-                  size: 14,
+              ),
+            ),
+          ),
+          Expanded(
+            child: Container(
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                label: Text(
-                  'COUNTDOWN',
-                  style: TextStyle(
-                      color: kMetalicGold,
-                      fontFamily: 'Raleway',
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold),
+                child: FlatButton.icon(
+                  onPressed: () => Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                      builder: (_) => CountdownScreen(),
+                    ),
+                  ),
+                  icon: Icon(
+                    Icons.arrow_forward_ios,
+                    color: kMetalicGold,
+                    size: 14,
+                  ),
+                  label: Text(
+                    'COUNTDOWN',
+                    style: TextStyle(
+                        color: kMetalicGold,
+                        fontFamily: 'Raleway',
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-      ],
-    );
-  }
+        ],
+      );
 }
